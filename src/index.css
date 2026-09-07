@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#09090b] text-zinc-100 font-sans antialiased;
+  }
+}
+
+.glass-card {
+  @apply bg-[#121214] border border-[#27272a] shadow-sm;
+}
+.interactive-element {
+  @apply active:scale-95 transition-transform;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
