@@ -42,7 +42,7 @@ export default function App() {
           className={`flex-1 flex flex-col items-center gap-[5px] cursor-pointer ${tab === 'tracker' ? 'text-[#3B82F6]' : 'text-[#5A5A62]'}`}
         >
           <Home className="w-5 h-5" />
-          <span className="text-[10px] font-medium">Home</span>
+          <span className="text-[10px] font-medium">Track</span>
         </div>
         
         <div 
@@ -50,12 +50,7 @@ export default function App() {
           className={`flex-1 flex flex-col items-center gap-[5px] cursor-pointer ${tab === 'plan' ? 'text-[#3B82F6]' : 'text-[#5A5A62]'}`}
         >
           <LineChart className="w-5 h-5" />
-          <span className="text-[10px] font-medium">Progress</span>
-        </div>
-
-        <div className="flex-1 flex flex-col items-center gap-[5px] text-[#5A5A62] cursor-pointer hover:text-[#3B82F6] transition-colors">
-          <History className="w-5 h-5" />
-          <span className="text-[10px] font-medium">History</span>
+          <span className="text-[10px] font-medium">Plan</span>
         </div>
 
         <div 
@@ -63,7 +58,7 @@ export default function App() {
           className="flex-1 flex flex-col items-center gap-[5px] text-[#5A5A62] cursor-pointer hover:text-red-400 transition-colors"
         >
           <User className="w-5 h-5" />
-          <span className="text-[10px] font-medium">Profile</span>
+          <span className="text-[10px] font-medium">Logout</span>
         </div>
       </div>
     </div>
