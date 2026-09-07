@@ -47,13 +47,13 @@ export default defineConfig({
     },
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      includeAssets: ['favicon.jpg', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'Gym Tracker Pro',
-        short_name: 'GymTracker',
-        description: 'Isolated Gym Tracking App',
-        theme_color: '#09090b',
-        background_color: '#09090b',
+        name: 'GymTrack',
+        short_name: 'GymTrack',
+        description: 'Premium Gym Tracking App',
+        theme_color: '#0B111A',
+        background_color: '#0B111A',
         display: 'standalone',
         icons: [
           {

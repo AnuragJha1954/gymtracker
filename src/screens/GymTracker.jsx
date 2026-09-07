@@ -39,10 +39,10 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in font-sans">
-      <div className="w-full max-w-sm bg-[#0c0c0e] border border-[#27272a] rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.9)] flex flex-col animate-scale-in">
-        <div className="p-4 border-b border-[#27272a] flex justify-between items-center bg-[#121214] rounded-t-3xl">
+      <div className="w-full max-w-sm bg-[#141A25] border border-[#263143] rounded-[24px] shadow-[0_25px_70px_rgba(0,0,0,0.9)] flex flex-col animate-scale-in">
+        <div className="p-4 border-b border-[#263143] flex justify-between items-center bg-[#1C2433] rounded-t-3xl">
           <h3 className="font-bold text-sm text-white font-mono uppercase tracking-wider">{title}</h3>
-          <button onClick={onClose} className="p-1.5 text-zinc-400 hover:text-white bg-[#18181b] rounded-lg border border-[#27272a]">
+          <button onClick={onClose} className="p-1.5 text-slate-400 hover:text-white bg-[#141A25] rounded-lg border border-[#263143]">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -50,7 +50,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
         <div className="p-6 flex flex-col items-center">
           <div className="relative w-full">
             {/* Selected Highlight Box */}
-            <div className="absolute top-1/2 left-0 right-0 h-12 -mt-6 bg-white/5 border-y border-white/10 rounded-lg pointer-events-none z-10"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-12 -mt-6 bg-[#14F1D9]/10 border-y border-[#14F1D9]/20 rounded-lg pointer-events-none z-10"></div>
             
             <div 
               ref={scrollRef}
@@ -70,7 +70,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
                     }}
                   >
                     <span className={`font-mono transition-all ${
-                      isSelected ? 'text-3xl font-black text-white' : 'text-xl font-bold text-zinc-500 opacity-50'
+                      isSelected ? 'text-3xl font-black text-[#14F1D9]' : 'text-xl font-bold text-slate-500 opacity-50'
                     }`}>
                       {opt} {unit}
                     </span>
@@ -87,7 +87,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
                 const idx = Math.max(0, options.indexOf(selectedValue) - 1);
                 scrollRef.current.scrollTop = idx * itemHeight;
               }}
-              className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#18181b] border border-[#27272a] text-zinc-300 active:scale-95 transition-transform"
+              className="w-14 h-14 flex items-center justify-center rounded-[20px] bg-[#141A25] border border-[#263143] text-slate-300 active:scale-95 transition-transform"
             >
               <span className="text-2xl font-mono">−</span>
             </button>
@@ -96,7 +96,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
                 onSave(selectedValue);
                 onClose();
               }}
-              className="flex-1 h-14 bg-white hover:bg-zinc-200 text-zinc-950 font-black rounded-2xl tracking-wider uppercase flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              className="flex-1 h-14 bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black rounded-[20px] tracking-wider uppercase flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-[0_0_20px_rgba(20,241,217,0.1)]"
             >
               <Check className="w-5 h-5 stroke-[3]" /> Save Weight
             </button>
@@ -105,7 +105,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
                 const idx = Math.min(options.length - 1, options.indexOf(selectedValue) + 1);
                 scrollRef.current.scrollTop = idx * itemHeight;
               }}
-              className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#18181b] border border-[#27272a] text-zinc-300 active:scale-95 transition-transform"
+              className="w-14 h-14 flex items-center justify-center rounded-[20px] bg-[#141A25] border border-[#263143] text-slate-300 active:scale-95 transition-transform"
             >
               <span className="text-2xl font-mono">+</span>
             </button>
@@ -135,20 +135,20 @@ const ExerciseSearchModal = ({ isOpen, onClose, onSelect }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in font-sans">
-      <div className="w-full max-w-md bg-[#0c0c0e] border border-[#27272a] rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.9)] flex flex-col h-[70vh] animate-scale-in">
-        <div className="p-4 border-b border-[#27272a] flex gap-3 items-center bg-[#121214] rounded-t-3xl">
+      <div className="w-full max-w-md bg-[#141A25] border border-[#263143] rounded-[24px] shadow-[0_25px_70px_rgba(0,0,0,0.9)] flex flex-col h-[70vh] animate-scale-in">
+        <div className="p-4 border-b border-[#263143] flex gap-3 items-center bg-[#1C2433] rounded-t-3xl">
           <div className="flex-1 relative">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
             <input 
               autoFocus
               type="text" 
               placeholder="Search exercises..." 
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full bg-[#18181b] border border-[#27272a] rounded-xl pl-9 pr-4 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-white transition-all"
+              className="w-full bg-[#141A25] border border-[#263143] rounded-xl pl-9 pr-4 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-[#14F1D9] transition-all"
             />
           </div>
-          <button onClick={onClose} className="p-2.5 text-zinc-400 hover:text-white bg-[#18181b] rounded-xl border border-[#27272a]">
+          <button onClick={onClose} className="p-2.5 text-slate-400 hover:text-white bg-[#141A25] rounded-xl border border-[#263143]">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -157,22 +157,22 @@ const ExerciseSearchModal = ({ isOpen, onClose, onSelect }) => {
           {query.length > 0 && !filtered.includes(query) && (
             <button 
               onClick={() => onSelect(query)}
-              className="w-full p-3 text-left flex items-center justify-between rounded-xl bg-white/5 border border-white/10 text-zinc-200 font-bold active:bg-white/10"
+              className="w-full p-3 text-left flex items-center justify-between rounded-xl bg-[#14F1D9]/10 border border-[#14F1D9]/20 text-slate-200 font-bold active:bg-[#14F1D9]/20"
             >
               <span>+ Add "{query}"</span>
             </button>
           )}
           <div className="pt-2 pb-1">
-            <span className="text-[10px] uppercase font-bold text-zinc-500 font-mono tracking-wider ml-1">Popular & Recent</span>
+            <span className="text-[10px] uppercase font-bold text-slate-500 font-mono tracking-wider ml-1">Popular & Recent</span>
           </div>
           {filtered.map(ex => (
             <button 
               key={ex}
               onClick={() => onSelect(ex)}
-              className="w-full p-3.5 text-left flex items-center justify-between rounded-xl hover:bg-[#18181b] active:bg-[#27272a] text-zinc-200 font-bold transition-all"
+              className="w-full p-3.5 text-left flex items-center justify-between rounded-xl hover:bg-[#141A25] active:bg-[#27272a] text-slate-200 font-bold transition-all"
             >
               {ex}
-              <Plus className="w-4 h-4 text-zinc-500" />
+              <Plus className="w-4 h-4 text-slate-500" />
             </button>
           ))}
         </div>
@@ -356,8 +356,8 @@ export default function GymTracker() {
         </div>
 
         {/* Hero Card */}
-        <div className="glass-card bg-[#111827] rounded-3xl p-6 sm:p-8 border border-[#1f2937] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] flex flex-col items-center text-center">
-          <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white mb-4 shadow-inner">
+        <div className="glass-card bg-[#141A25] rounded-[24px] p-6 sm:p-8 border border-[#263143] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] flex flex-col items-center text-center">
+          <div className="w-16 h-16 rounded-[20px] bg-[#14F1D9]/10 border border-[#14F1D9]/20 flex items-center justify-center text-white mb-4 shadow-inner">
             <Dumbbell className="w-8 h-8" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-black font-['Outfit'] text-white mb-2">Ready to train?</h2>
@@ -365,7 +365,7 @@ export default function GymTracker() {
           
           <button
             onClick={() => startWorkout("New Workout")}
-            className="w-full max-w-xs py-4 bg-white hover:bg-zinc-200 text-zinc-950 font-black rounded-2xl shadow-[0_10px_30px_rgba(255,255,255,0.05)] interactive-element flex items-center justify-center space-x-2 text-base tracking-wider uppercase font-mono transition-transform active:scale-95"
+            className="w-full max-w-xs py-4 bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black rounded-[20px] shadow-[0_10px_30px_rgba(20,241,217,0.1)] interactive-element flex items-center justify-center space-x-2 text-base tracking-wider uppercase font-mono transition-transform active:scale-95"
           >
             <Play className="w-5 h-5 stroke-[3]" />
             <span>Start Workout</span>
@@ -374,12 +374,12 @@ export default function GymTracker() {
 
         {/* History List */}
         <div className="pt-4">
-          <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider font-mono flex items-center gap-2 mb-4">
+          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono flex items-center gap-2 mb-4">
             <History className="w-4 h-4 text-white" /> Past Workout Sessions
           </h3>
 
           {workouts.length === 0 ? (
-            <div className="glass-card rounded-2xl p-8 text-center text-zinc-500 text-sm font-mono border border-white/[0.02]">
+            <div className="glass-card rounded-[20px] p-8 text-center text-slate-500 text-sm font-mono border border-[#14F1D9]/[0.02]">
               No workouts logged yet. Start one above!
             </div>
           ) : (
@@ -395,21 +395,21 @@ export default function GymTracker() {
                   : (wo.exercises?.reduce((sum, ex) => sum + (ex.sets?.length || 0), 0) || 0);
                 
                 return (
-                  <div key={wo.id} className="glass-card glass-card-hover rounded-2xl p-5 border border-white/[0.04]">
+                  <div key={wo.id} className="glass-card glass-card-hover rounded-[20px] p-5 border border-[#14F1D9]/[0.04]">
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <h4 className="font-bold text-white text-lg font-['Outfit']">{title}</h4>
-                        <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 mt-1">
+                        <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400 mt-1">
                           <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {wo.date}</span>
                           {wo.duration && <span className="flex items-center gap-1 text-white"><Timer className="w-3 h-3" /> {wo.duration} min</span>}
                         </div>
                       </div>
-                      <button onClick={() => deleteWorkoutHistory(wo.id)} className="p-1.5 text-zinc-500 hover:text-rose-400 bg-white/[0.02] hover:bg-rose-500/10 rounded-lg transition-colors border border-transparent hover:border-rose-500/20">
+                      <button onClick={() => deleteWorkoutHistory(wo.id)} className="p-1.5 text-slate-500 hover:text-rose-400 bg-[#14F1D9]/[0.02] hover:bg-rose-500/10 rounded-lg transition-colors border border-transparent hover:border-rose-500/20">
                         <Trash2 className="w-4 h-4" />
                       </button>
                     </div>
 
-                    <div className="text-xs text-zinc-300 font-medium">
+                    <div className="text-xs text-slate-300 font-medium">
                       {exerciseCount} Exercises · {totalSets} Sets
                     </div>
                   </div>
@@ -427,25 +427,25 @@ export default function GymTracker() {
   // -------------------------------------------------------------
   if (viewState === 'active') {
     return (
-      <div className="fixed inset-0 z-40 bg-[#09090b] flex flex-col font-sans overflow-hidden">
+      <div className="fixed inset-0 z-40 bg-[#0B111A] flex flex-col font-sans overflow-hidden">
         {/* Sticky Header */}
-        <div className="bg-[#121214] border-b border-[#27272a] px-4 py-3 flex items-center justify-between shrink-0 shadow-md relative z-10">
+        <div className="bg-[#1C2433] border-b border-[#263143] px-4 py-3 flex items-center justify-between shrink-0 shadow-md relative z-10">
           <div className="flex flex-col">
             <input 
               type="text" 
               value={activeWorkout.name} 
               onChange={(e) => setActiveWorkout({...activeWorkout, name: e.target.value})}
-              className="bg-transparent text-white font-black font-['Outfit'] text-xl focus:outline-none focus:text-white placeholder:text-zinc-600 w-full"
+              className="bg-transparent text-white font-black font-['Outfit'] text-xl focus:outline-none focus:text-white placeholder:text-slate-600 w-full"
             />
             <div className="flex items-center gap-2 text-xs font-mono text-white font-bold">
               <span className="flex items-center gap-1"><Timer className="w-3 h-3" /> {timerStr}</span>
-              <span className="text-zinc-600">|</span>
-              <span className="text-zinc-400">{activeWorkout.exercises.length} Exercises</span>
+              <span className="text-slate-600">|</span>
+              <span className="text-slate-400">{activeWorkout.exercises.length} Exercises</span>
             </div>
           </div>
           <button 
             onClick={finishWorkout}
-            className="bg-white hover:bg-zinc-200 text-zinc-950 font-black px-4 py-2.5 rounded-xl uppercase tracking-wider text-xs shadow-sm interactive-element flex items-center gap-1"
+            className="bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black px-4 py-2.5 rounded-xl uppercase tracking-wider text-xs shadow-sm interactive-element flex items-center gap-1"
           >
             Finish <Check className="w-4 h-4 stroke-[3]" />
           </button>
@@ -455,20 +455,20 @@ export default function GymTracker() {
         <div className="flex-1 overflow-y-auto p-4 space-y-5 pb-32">
           {activeWorkout.exercises.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center opacity-70">
-              <Dumbbell className="w-12 h-12 text-zinc-600 mb-4" />
+              <Dumbbell className="w-12 h-12 text-slate-600 mb-4" />
               <h3 className="text-lg font-bold text-white font-['Outfit']">Empty Workout</h3>
-              <p className="text-sm text-zinc-400 max-w-[200px] mt-2">Add your first exercise to start tracking sets.</p>
+              <p className="text-sm text-slate-400 max-w-[200px] mt-2">Add your first exercise to start tracking sets.</p>
             </div>
           ) : (
             activeWorkout.exercises.map((ex, exIdx) => (
-              <div key={ex.id} className="glass-card rounded-2xl bg-[#121214] border border-[#27272a] shadow-sm overflow-hidden">
-                <div className="px-4 py-3 border-b border-[#27272a] flex justify-between items-center bg-[#18181b]">
+              <div key={ex.id} className="glass-card rounded-[20px] bg-[#1C2433] border border-[#263143] shadow-sm overflow-hidden">
+                <div className="px-4 py-3 border-b border-[#263143] flex justify-between items-center bg-[#141A25]">
                   <h3 className="font-bold text-white text-base font-['Outfit'] text-white">{ex.name}</h3>
                 </div>
                 
                 <div className="p-2 sm:p-4">
                   {/* Table Header */}
-                  <div className="grid grid-cols-12 gap-2 text-[10px] font-mono uppercase font-bold text-zinc-500 mb-2 px-2">
+                  <div className="grid grid-cols-12 gap-2 text-[10px] font-mono uppercase font-bold text-slate-500 mb-2 px-2">
                     <div className="col-span-2 text-center">Set</div>
                     <div className="col-span-3 text-center">kg</div>
                     <div className="col-span-3 text-center">Reps</div>
@@ -480,8 +480,8 @@ export default function GymTracker() {
                     {ex.sets.map((set, setIdx) => {
                       const isCompleted = set.completed;
                       return (
-                        <div key={set.id} className={`grid grid-cols-12 gap-2 items-center px-2 py-1 rounded-xl transition-all ${isCompleted ? 'bg-white/5 border border-white/10' : 'bg-[#18181b] border border-transparent hover:border-[#27272a]'}`}>
-                          <div className="col-span-2 text-center text-xs font-mono font-bold text-zinc-400">
+                        <div key={set.id} className={`grid grid-cols-12 gap-2 items-center px-2 py-1 rounded-xl transition-all ${isCompleted ? 'bg-[#14F1D9]/10 border border-[#14F1D9]/20' : 'bg-[#141A25] border border-transparent hover:border-[#263143]'}`}>
+                          <div className="col-span-2 text-center text-xs font-mono font-bold text-slate-400">
                             {set.setNumber}
                           </div>
                           
@@ -489,7 +489,7 @@ export default function GymTracker() {
                           <div className="col-span-3 flex justify-center">
                             <button 
                               onClick={() => setPickerConfig({ isOpen: true, type: 'weight', exId: ex.id, setId: set.id, initial: set.weight })}
-                              className={`w-full py-1.5 rounded-lg text-sm font-mono font-bold transition-colors ${isCompleted ? 'text-zinc-300' : 'text-white bg-[#27272a] hover:bg-[#3f3f46]'}`}
+                              className={`w-full py-1.5 rounded-lg text-sm font-mono font-bold transition-colors ${isCompleted ? 'text-slate-300' : 'text-slate-200 bg-[#263143] hover:bg-[#3f3f46]'}`}
                             >
                               {set.weight}
                             </button>
@@ -499,7 +499,7 @@ export default function GymTracker() {
                           <div className="col-span-3 flex justify-center">
                             <button 
                               onClick={() => setPickerConfig({ isOpen: true, type: 'reps', exId: ex.id, setId: set.id, initial: set.reps })}
-                              className={`w-full py-1.5 rounded-lg text-sm font-mono font-bold transition-colors ${isCompleted ? 'text-zinc-300' : 'text-white bg-[#27272a] hover:bg-[#3f3f46]'}`}
+                              className={`w-full py-1.5 rounded-lg text-sm font-mono font-bold transition-colors ${isCompleted ? 'text-slate-300' : 'text-slate-200 bg-[#263143] hover:bg-[#3f3f46]'}`}
                             >
                               {set.reps}
                             </button>
@@ -508,13 +508,13 @@ export default function GymTracker() {
                           {/* Action / Checkbox */}
                           <div className="col-span-4 flex justify-center items-center gap-1.5">
                             {!isCompleted && ex.sets.length > 1 && (
-                              <button onClick={() => removeSet(ex.id, set.id)} className="p-1.5 text-zinc-600 hover:text-rose-400">
+                              <button onClick={() => removeSet(ex.id, set.id)} className="p-1.5 text-slate-600 hover:text-rose-400">
                                 <Trash2 className="w-4 h-4" />
                               </button>
                             )}
                             <button 
                               onClick={() => toggleSetComplete(ex.id, set.id)}
-                              className={`w-10 py-1.5 rounded-lg flex items-center justify-center transition-all ${isCompleted ? 'bg-white text-zinc-950 shadow-[0_0_15px_rgba(255,255,255,0.05)]' : 'bg-[#27272a] text-zinc-400 hover:bg-[#3f3f46]'}`}
+                              className={`w-10 py-1.5 rounded-lg flex items-center justify-center transition-all ${isCompleted ? 'bg-[#14F1D9] text-[#0B111A] shadow-[0_0_15px_rgba(20,241,217,0.1)]' : 'bg-[#27272a] text-slate-400 hover:bg-[#3f3f46]'}`}
                             >
                               <Check className={`w-4 h-4 ${isCompleted ? 'stroke-[3]' : 'stroke-[2]'}`} />
                             </button>
@@ -526,7 +526,7 @@ export default function GymTracker() {
 
                   <button 
                     onClick={() => addSet(ex.id)}
-                    className="w-full mt-3 py-2.5 rounded-xl border border-dashed border-[#27272a] text-xs font-bold text-white uppercase tracking-wider font-mono hover:bg-white/5 hover:border-white/10 transition-all flex items-center justify-center gap-1"
+                    className="w-full mt-3 py-2.5 rounded-xl border border-dashed border-[#263143] text-xs font-bold text-white uppercase tracking-wider font-mono hover:bg-[#14F1D9]/10 hover:border-[#14F1D9]/20 transition-all flex items-center justify-center gap-1"
                   >
                     <Plus className="w-3.5 h-3.5" /> Add Set
                   </button>
@@ -537,7 +537,7 @@ export default function GymTracker() {
 
           <button 
             onClick={() => setShowExSearch(true)}
-            className="w-full py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold uppercase tracking-wider font-mono interactive-element flex items-center justify-center gap-2 shadow-sm"
+            className="w-full py-4 rounded-[20px] bg-[#14F1D9]/10 border border-[#14F1D9]/20 text-white font-bold uppercase tracking-wider font-mono interactive-element flex items-center justify-center gap-2 shadow-sm"
           >
             <Plus className="w-5 h-5" /> Add Exercise
           </button>
@@ -578,35 +578,35 @@ export default function GymTracker() {
     , 0);
 
     return (
-      <div className="fixed inset-0 z-50 bg-[#09090b] flex flex-col font-sans overflow-y-auto">
+      <div className="fixed inset-0 z-50 bg-[#0B111A] flex flex-col font-sans overflow-y-auto">
         <div className="p-6 sm:p-8 flex-1 max-w-lg mx-auto w-full flex flex-col items-center text-center justify-center min-h-screen space-y-6">
-          <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.1)] animate-scale-in">
-            <Check className="w-10 h-10 text-zinc-950 stroke-[3]" />
+          <div className="w-20 h-20 rounded-full bg-[#14F1D9] flex items-center justify-center shadow-[0_0_50px_rgba(20,241,217,0.2)] animate-scale-in">
+            <Check className="w-10 h-10 text-[#0B111A] stroke-[3]" />
           </div>
           
           <div>
             <h1 className="text-3xl font-black font-['Outfit'] text-white">Workout Complete!</h1>
-            <p className="text-zinc-400 mt-2 font-mono">{activeWorkout.name}</p>
+            <p className="text-slate-400 mt-2 font-mono">{activeWorkout.name}</p>
           </div>
 
-          <div className="w-full glass-card bg-[#121214] border border-[#27272a] rounded-3xl p-6 shadow-xl space-y-4">
-            <div className="grid grid-cols-2 gap-4 border-b border-[#27272a] pb-4">
+          <div className="w-full glass-card bg-[#1C2433] border border-[#263143] rounded-[24px] p-6 shadow-xl space-y-4">
+            <div className="grid grid-cols-2 gap-4 border-b border-[#263143] pb-4">
               <div>
-                <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider font-mono">Duration</p>
+                <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider font-mono">Duration</p>
                 <p className="text-xl font-black text-white font-mono mt-1">{activeWorkout.duration} min</p>
               </div>
               <div>
-                <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider font-mono">Volume</p>
+                <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider font-mono">Volume</p>
                 <p className="text-xl font-black text-white font-mono mt-1">{totalVolume} kg</p>
               </div>
             </div>
             
             <div className="text-left space-y-2">
-              <p className="text-xs text-zinc-300 font-bold mb-3">{activeWorkout.exercises.length} Exercises · {completedSets}/{totalSets} Sets Completed</p>
+              <p className="text-xs text-slate-300 font-bold mb-3">{activeWorkout.exercises.length} Exercises · {completedSets}/{totalSets} Sets Completed</p>
               {activeWorkout.exercises.map(ex => (
                 <div key={ex.id} className="flex justify-between items-center text-xs">
-                  <span className="text-zinc-400 font-bold">{ex.name}</span>
-                  <span className="text-zinc-500 font-mono">{ex.sets.filter(s => s.completed).length} sets</span>
+                  <span className="text-slate-400 font-bold">{ex.name}</span>
+                  <span className="text-slate-500 font-mono">{ex.sets.filter(s => s.completed).length} sets</span>
                 </div>
               ))}
             </div>
@@ -615,13 +615,13 @@ export default function GymTracker() {
           <div className="w-full space-y-3 pt-4">
             <button 
               onClick={saveWorkout}
-              className="w-full py-4 bg-white hover:bg-zinc-200 text-zinc-950 font-black rounded-2xl shadow-lg interactive-element flex items-center justify-center gap-2 uppercase tracking-wider font-mono text-sm"
+              className="w-full py-4 bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black rounded-full shadow-lg interactive-element flex items-center justify-center gap-2 uppercase tracking-wider font-mono text-sm"
             >
               <Save className="w-5 h-5 stroke-[2.5]" /> Save to History
             </button>
             <button 
               onClick={() => setViewState('active')}
-              className="w-full py-4 bg-transparent border border-[#27272a] text-zinc-400 hover:text-white font-bold rounded-2xl interactive-element uppercase tracking-wider font-mono text-xs"
+              className="w-full py-4 bg-transparent border border-[#263143] text-slate-400 hover:text-white font-bold rounded-[20px] interactive-element uppercase tracking-wider font-mono text-xs"
             >
               Keep Editing
             </button>
