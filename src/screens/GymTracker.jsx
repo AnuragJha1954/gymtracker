@@ -50,7 +50,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
         <div className="p-6 flex flex-col items-center">
           <div className="relative w-full">
             {/* Selected Highlight Box */}
-            <div className="absolute top-1/2 left-0 right-0 h-12 -mt-6 bg-[#14F1D9]/10 border-y border-[#14F1D9]/20 rounded-lg pointer-events-none z-10"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-12 -mt-6 bg-[#3B82F6]/10 border-y border-[#3B82F6]/20 rounded-lg pointer-events-none z-10"></div>
             
             <div 
               ref={scrollRef}
@@ -70,7 +70,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
                     }}
                   >
                     <span className={`font-mono transition-all ${
-                      isSelected ? 'text-3xl font-black text-[#14F1D9]' : 'text-xl font-bold text-slate-500 opacity-50'
+                      isSelected ? 'text-3xl font-black text-[#3B82F6]' : 'text-xl font-bold text-slate-500 opacity-50'
                     }`}>
                       {opt} {unit}
                     </span>
@@ -96,7 +96,7 @@ const WheelPickerModal = ({ isOpen, onClose, onSave, initialValue, min, max, ste
                 onSave(selectedValue);
                 onClose();
               }}
-              className="flex-1 h-14 bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black rounded-[20px] tracking-wider uppercase flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-[0_0_20px_rgba(20,241,217,0.1)]"
+              className="flex-1 h-14 bg-[#3B82F6] hover:bg-[#2563EB] text-[#0B111A] font-black rounded-[20px] tracking-wider uppercase flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-[0_0_20px_rgba(59,130,246,0.1)]"
             >
               <Check className="w-5 h-5 stroke-[3]" /> Save Weight
             </button>
@@ -145,7 +145,7 @@ const ExerciseSearchModal = ({ isOpen, onClose, onSelect }) => {
               placeholder="Search exercises..." 
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full bg-[#141A25] border border-[#263143] rounded-xl pl-9 pr-4 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-[#14F1D9] transition-all"
+              className="w-full bg-[#141A25] border border-[#263143] rounded-xl pl-9 pr-4 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-[#3B82F6] transition-all"
             />
           </div>
           <button onClick={onClose} className="p-2.5 text-slate-400 hover:text-white bg-[#141A25] rounded-xl border border-[#263143]">
@@ -157,7 +157,7 @@ const ExerciseSearchModal = ({ isOpen, onClose, onSelect }) => {
           {query.length > 0 && !filtered.includes(query) && (
             <button 
               onClick={() => onSelect(query)}
-              className="w-full p-3 text-left flex items-center justify-between rounded-xl bg-[#14F1D9]/10 border border-[#14F1D9]/20 text-slate-200 font-bold active:bg-[#14F1D9]/20"
+              className="w-full p-3 text-left flex items-center justify-between rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-slate-200 font-bold active:bg-[#3B82F6]/20"
             >
               <span>+ Add "{query}"</span>
             </button>
@@ -348,76 +348,91 @@ export default function GymTracker() {
   // IDLE VIEW (Hero + History)
   // -------------------------------------------------------------
   if (viewState === 'idle') {
+    const todayStr = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit' });
+    const totalSessions = workouts.length;
+
     return (
-      <div className="space-y-6 pb-28 px-4 max-w-4xl mx-auto pt-2 animate-fade-in font-sans">
-        {/* Top Header */}
-        <div className="flex items-center justify-center mb-6">
-          <h1 className="text-xl font-black font-['Outfit'] text-white uppercase tracking-wider">Gym Tracker</h1>
+      <div className="flex flex-col h-full animate-fade-in pb-8">
+        <div className="pt-[22px] px-[22px] flex justify-between items-baseline">
+          <div className="font-display text-[16px] text-[#F5F1EA] tracking-tight">
+            GYM<span className="text-[#3B82F6]">TRACKER</span>
+          </div>
+          <div className="text-[11px] text-[#5A5A62] font-medium">{todayStr}</div>
         </div>
 
-        {/* Hero Card */}
-        <div className="glass-card bg-[#141A25] rounded-[24px] p-6 sm:p-8 border border-[#263143] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] flex flex-col items-center text-center">
-          <div className="w-16 h-16 rounded-[20px] bg-[#14F1D9]/10 border border-[#14F1D9]/20 flex items-center justify-center text-white mb-4 shadow-inner">
-            <Dumbbell className="w-8 h-8" />
+        <div className="flex mt-5 mx-[22px] border-y border-[#1c1c1f]">
+          <div className="flex-1 py-3.5 text-left pr-2">
+            <div className="font-display text-[22px] text-[#F5F1EA] leading-none">0</div>
+            <div className="text-[10px] text-[#5A5A62] uppercase tracking-[0.04em] mt-1.5">Day streak</div>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black font-['Outfit'] text-white mb-2">Ready to train?</h2>
-          <p className="text-sm text-slate-400 max-w-md mx-auto mb-6">Start a new session, track your sets, and log your progressive overload instantly.</p>
-          
+          <div className="flex-1 py-3.5 text-left border-l border-[#1c1c1f] pl-[14px]">
+            <div className="font-display text-[22px] text-[#F5F1EA] leading-none">—</div>
+            <div className="text-[10px] text-[#5A5A62] uppercase tracking-[0.04em] mt-1.5">Last lift</div>
+          </div>
+          <div className="flex-1 py-3.5 text-left border-l border-[#1c1c1f] pl-[14px]">
+            <div className="font-display text-[22px] text-[#F5F1EA] leading-none">{totalSessions}</div>
+            <div className="text-[10px] text-[#5A5A62] uppercase tracking-[0.04em] mt-1.5">Total sessions</div>
+          </div>
+        </div>
+
+        <div className="mt-7 mx-[22px]">
+          <div className="text-[12px] text-[#5A5A62] mb-1.5">No session running</div>
+          <div className="font-display text-[34px] leading-[1.05] text-[#F5F1EA] tracking-tight">
+            Ready to<br/>train.
+          </div>
+          <div className="mt-2.5 text-[13.5px] text-[#8a8a90] leading-relaxed max-w-[240px]">
+            Log sets as you go. Every rep gets timestamped and compared to your last session.
+          </div>
+
           <button
             onClick={() => startWorkout("New Workout")}
-            className="w-full max-w-xs py-4 bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black rounded-[20px] shadow-[0_10px_30px_rgba(20,241,217,0.1)] interactive-element flex items-center justify-center space-x-2 text-base tracking-wider uppercase font-mono transition-transform active:scale-95"
+            className="mt-7 w-full bg-[#3B82F6] text-[#0A1628] border-none py-[18px] font-sans font-bold text-[15px] rounded-[4px] flex items-center justify-center gap-2 tracking-[0.01em] active:scale-[0.98] transition-transform"
           >
-            <Play className="w-5 h-5 stroke-[3]" />
-            <span>Start Workout</span>
+            <Play className="w-[14px] h-[14px] fill-current" />
+            START WORKOUT
           </button>
         </div>
 
-        {/* History List */}
-        <div className="pt-4">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono flex items-center gap-2 mb-4">
-            <History className="w-4 h-4 text-white" /> Past Workout Sessions
-          </h3>
+        <div className="flex justify-between items-baseline mx-[22px] mt-[34px] mb-3">
+          <div className="text-[12px] text-[#F5F1EA] font-semibold tracking-[0.02em]">RECENT SESSIONS</div>
+          <div className="text-[11px] text-[#5A5A62] cursor-pointer hover:text-white">View all</div>
+        </div>
 
-          {workouts.length === 0 ? (
-            <div className="glass-card rounded-[20px] p-8 text-center text-slate-500 text-sm font-mono border border-[#14F1D9]/[0.02]">
-              No workouts logged yet. Start one above!
+        {workouts.length === 0 ? (
+          <div className="mx-[22px] border border-dashed border-[#2a2a2e] rounded-[4px] p-[22px_18px] text-left">
+            <div className="text-[13px] text-[#cfcfd2] font-medium mb-1">Nothing logged yet</div>
+            <div className="text-[12px] text-[#5A5A62] leading-relaxed">
+              Start a workout above and it'll show up here with sets, weight, and duration.
             </div>
-          ) : (
-            <div className="space-y-4">
-              {workouts.map(wo => {
-                // Determine if it's the new complex format or legacy format
-                const isLegacy = !wo.exercises && !!wo.exercise_name;
-                
-                let title = wo.name || wo.exercise_name || "Workout";
-                let exerciseCount = isLegacy ? 1 : (wo.exercises?.length || 0);
-                let totalSets = isLegacy 
-                  ? (wo.sets?.length || 0) 
-                  : (wo.exercises?.reduce((sum, ex) => sum + (ex.sets?.length || 0), 0) || 0);
-                
-                return (
-                  <div key={wo.id} className="glass-card glass-card-hover rounded-[20px] p-5 border border-[#14F1D9]/[0.04]">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h4 className="font-bold text-white text-lg font-['Outfit']">{title}</h4>
-                        <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400 mt-1">
-                          <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {wo.date}</span>
-                          {wo.duration && <span className="flex items-center gap-1 text-white"><Timer className="w-3 h-3" /> {wo.duration} min</span>}
-                        </div>
-                      </div>
-                      <button onClick={() => deleteWorkoutHistory(wo.id)} className="p-1.5 text-slate-500 hover:text-rose-400 bg-[#14F1D9]/[0.02] hover:bg-rose-500/10 rounded-lg transition-colors border border-transparent hover:border-rose-500/20">
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    <div className="text-xs text-slate-300 font-medium">
-                      {exerciseCount} Exercises · {totalSets} Sets
+          </div>
+        ) : (
+          <div className="mx-[22px] space-y-3">
+            {workouts.map(wo => {
+              const isLegacy = !wo.exercises && !!wo.exercise_name;
+              let title = wo.name || wo.exercise_name || "Workout";
+              let exerciseCount = isLegacy ? 1 : (wo.exercises?.length || 0);
+              let totalSets = isLegacy 
+                ? (wo.sets?.length || 0) 
+                : (wo.exercises?.reduce((sum, ex) => sum + (ex.sets?.length || 0), 0) || 0);
+              
+              return (
+                <div key={wo.id} className="border border-[#1c1c1f] bg-[#0A0A0B] rounded-[4px] p-4 flex justify-between items-center group">
+                  <div>
+                    <h4 className="font-bold text-[#F5F1EA] text-[15px]">{title}</h4>
+                    <div className="text-[11px] text-[#5A5A62] mt-1 flex gap-2">
+                      <span>{wo.date}</span>
+                      {wo.duration && <span>· {wo.duration} min</span>}
+                      <span>· {exerciseCount} exercises</span>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
+                  <button onClick={() => deleteWorkoutHistory(wo.id)} className="p-2 text-[#5A5A62] hover:text-red-400 opacity-50 group-hover:opacity-100 transition-opacity">
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }
@@ -445,7 +460,7 @@ export default function GymTracker() {
           </div>
           <button 
             onClick={finishWorkout}
-            className="bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black px-4 py-2.5 rounded-xl uppercase tracking-wider text-xs shadow-sm interactive-element flex items-center gap-1"
+            className="bg-[#3B82F6] hover:bg-[#2563EB] text-[#0B111A] font-black px-4 py-2.5 rounded-xl uppercase tracking-wider text-xs shadow-sm interactive-element flex items-center gap-1"
           >
             Finish <Check className="w-4 h-4 stroke-[3]" />
           </button>
@@ -480,7 +495,7 @@ export default function GymTracker() {
                     {ex.sets.map((set, setIdx) => {
                       const isCompleted = set.completed;
                       return (
-                        <div key={set.id} className={`grid grid-cols-12 gap-2 items-center px-2 py-1 rounded-xl transition-all ${isCompleted ? 'bg-[#14F1D9]/10 border border-[#14F1D9]/20' : 'bg-[#141A25] border border-transparent hover:border-[#263143]'}`}>
+                        <div key={set.id} className={`grid grid-cols-12 gap-2 items-center px-2 py-1 rounded-xl transition-all ${isCompleted ? 'bg-[#3B82F6]/10 border border-[#3B82F6]/20' : 'bg-[#141A25] border border-transparent hover:border-[#263143]'}`}>
                           <div className="col-span-2 text-center text-xs font-mono font-bold text-slate-400">
                             {set.setNumber}
                           </div>
@@ -514,7 +529,7 @@ export default function GymTracker() {
                             )}
                             <button 
                               onClick={() => toggleSetComplete(ex.id, set.id)}
-                              className={`w-10 py-1.5 rounded-lg flex items-center justify-center transition-all ${isCompleted ? 'bg-[#14F1D9] text-[#0B111A] shadow-[0_0_15px_rgba(20,241,217,0.1)]' : 'bg-[#27272a] text-slate-400 hover:bg-[#3f3f46]'}`}
+                              className={`w-10 py-1.5 rounded-lg flex items-center justify-center transition-all ${isCompleted ? 'bg-[#3B82F6] text-[#0B111A] shadow-[0_0_15px_rgba(59,130,246,0.1)]' : 'bg-[#27272a] text-slate-400 hover:bg-[#3f3f46]'}`}
                             >
                               <Check className={`w-4 h-4 ${isCompleted ? 'stroke-[3]' : 'stroke-[2]'}`} />
                             </button>
@@ -526,7 +541,7 @@ export default function GymTracker() {
 
                   <button 
                     onClick={() => addSet(ex.id)}
-                    className="w-full mt-3 py-2.5 rounded-xl border border-dashed border-[#263143] text-xs font-bold text-white uppercase tracking-wider font-mono hover:bg-[#14F1D9]/10 hover:border-[#14F1D9]/20 transition-all flex items-center justify-center gap-1"
+                    className="w-full mt-3 py-2.5 rounded-xl border border-dashed border-[#263143] text-xs font-bold text-white uppercase tracking-wider font-mono hover:bg-[#3B82F6]/10 hover:border-[#3B82F6]/20 transition-all flex items-center justify-center gap-1"
                   >
                     <Plus className="w-3.5 h-3.5" /> Add Set
                   </button>
@@ -537,7 +552,7 @@ export default function GymTracker() {
 
           <button 
             onClick={() => setShowExSearch(true)}
-            className="w-full py-4 rounded-[20px] bg-[#14F1D9]/10 border border-[#14F1D9]/20 text-white font-bold uppercase tracking-wider font-mono interactive-element flex items-center justify-center gap-2 shadow-sm"
+            className="w-full py-4 rounded-[20px] bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-white font-bold uppercase tracking-wider font-mono interactive-element flex items-center justify-center gap-2 shadow-sm"
           >
             <Plus className="w-5 h-5" /> Add Exercise
           </button>
@@ -580,7 +595,7 @@ export default function GymTracker() {
     return (
       <div className="fixed inset-0 z-50 bg-[#0B111A] flex flex-col font-sans overflow-y-auto">
         <div className="p-6 sm:p-8 flex-1 max-w-lg mx-auto w-full flex flex-col items-center text-center justify-center min-h-screen space-y-6">
-          <div className="w-20 h-20 rounded-full bg-[#14F1D9] flex items-center justify-center shadow-[0_0_50px_rgba(20,241,217,0.2)] animate-scale-in">
+          <div className="w-20 h-20 rounded-full bg-[#3B82F6] flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.2)] animate-scale-in">
             <Check className="w-10 h-10 text-[#0B111A] stroke-[3]" />
           </div>
           
@@ -615,7 +630,7 @@ export default function GymTracker() {
           <div className="w-full space-y-3 pt-4">
             <button 
               onClick={saveWorkout}
-              className="w-full py-4 bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black rounded-full shadow-lg interactive-element flex items-center justify-center gap-2 uppercase tracking-wider font-mono text-sm"
+              className="w-full py-4 bg-[#3B82F6] hover:bg-[#2563EB] text-[#0B111A] font-black rounded-full shadow-lg interactive-element flex items-center justify-center gap-2 uppercase tracking-wider font-mono text-sm"
             >
               <Save className="w-5 h-5 stroke-[2.5]" /> Save to History
             </button>

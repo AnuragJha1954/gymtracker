@@ -1,60 +1,86 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Dumbbell } from 'lucide-react';
 
 export default function AuthScreen() {
-  const { login } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const { login } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (!login(username.toLowerCase(), password)) {
-      setError('Invalid credentials');
+    setError('');
+    setIsLoading(true);
+    
+    try {
+      await login(username, password);
+    } catch (err) {
+      setError(err.message || 'Login failed. Please try again.');
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="glass-card w-full max-w-sm rounded-[24px] p-8 space-y-8 animate-scale-in">
-        <div className="flex flex-col items-center">
-          <div className="w-16 h-16 bg-[#14F1D9]/10 border border-[#14F1D9]/20 rounded-[20px] flex items-center justify-center text-white mb-4 shadow-inner">
-            <Dumbbell className="w-8 h-8" />
-          </div>
-          <h1 className="text-2xl font-black font-['Outfit'] text-white">GymTracker</h1>
-          <p className="text-xs text-slate-500 mt-2 font-mono">Isolated PWA Build</p>
+    <div className="flex flex-col h-screen px-6 bg-[#050506]">
+      <div className="flex-1 flex flex-col justify-center max-w-md mx-auto w-full">
+        <div className="font-display text-[44px] text-[#F5F1EA] leading-[0.95] tracking-tight">
+          GYM<br/><span className="text-[#3B82F6]">TRACKER</span>
+        </div>
+        <div className="mt-2.5 text-[12.5px] text-[#5A5A62]">
+          Track sets. See progress. No fluff.
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
+        {error && (
+          <div className="mt-6 p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-xs rounded-lg text-center">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleLogin} className="mt-6">
+          <div className="mt-[22px]">
+            <label className="block text-[10.5px] text-[#5A5A62] uppercase tracking-widest mb-2">Username</label>
             <input 
               type="text" 
-              placeholder="Username" 
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full bg-[#141A25] border border-[#263143] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#14F1D9] transition-colors"
+              className="w-full bg-transparent border-b border-[#2a2a2e] text-[#F5F1EA] font-sans text-[15px] py-2 focus:outline-none focus:border-[#3B82F6] transition-colors placeholder-[#45454a]"
+              placeholder="your_username"
+              required
             />
           </div>
-          <div>
+          
+          <div className="mt-[22px]">
+            <label className="block text-[10.5px] text-[#5A5A62] uppercase tracking-widest mb-2">Password</label>
             <input 
               type="password" 
-              placeholder="Password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-[#141A25] border border-[#263143] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#14F1D9] transition-colors"
+              className="w-full bg-transparent border-b border-[#2a2a2e] text-[#F5F1EA] font-sans text-[15px] py-2 focus:outline-none focus:border-[#3B82F6] transition-colors placeholder-[#45454a]"
+              placeholder="••••••••"
+              required
             />
           </div>
-
-          {error && <p className="text-xs text-rose-500 text-center">{error}</p>}
 
           <button 
             type="submit" 
-            className="w-full py-3.5 bg-[#14F1D9] hover:bg-[#0ED4BF] text-[#0B111A] font-black rounded-xl uppercase tracking-wider text-sm transition-transform active:scale-95 shadow-[0_0_20px_rgba(20,241,217,0.1)] mt-4"
+            disabled={isLoading}
+            className="mt-[34px] w-full bg-[#3B82F6] text-[#0A1628] border-none py-[17px] font-bold text-[14.5px] rounded-[4px] tracking-wide active:scale-[0.98] transition-transform disabled:opacity-50"
           >
-            Login
+            {isLoading ? 'LOGGING IN...' : 'LOG IN'}
           </button>
         </form>
+
+        <div className="text-center mt-[18px] text-[12px] text-[#5A5A62]">
+          New here? <b className="text-[#cfcfd2] font-semibold cursor-pointer hover:text-white transition-colors">Create an account</b>
+        </div>
+      </div>
+      
+      <div className="pb-[34px] text-center">
+        <div className="text-[10.5px] text-[#3f3f43] tracking-widest uppercase">
+          V1.0 · BUILT FOR THE GYM FLOOR
+        </div>
       </div>
     </div>
   );

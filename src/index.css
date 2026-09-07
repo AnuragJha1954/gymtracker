@@ -1,21 +1,48 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Archivo", sans-serif;
+  --font-display: "Archivo Black", sans-serif;
+}
+
 @layer base {
   body {
-    @apply bg-[#09090b] text-zinc-100 font-sans antialiased;
+    background-color: #050506;
+    color: #F5F1EA;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-.glass-card {
-  @apply bg-[#121214] border border-[#27272a] shadow-sm;
-}
-.interactive-element {
-  @apply active:scale-95 transition-transform;
-}
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-scale-in {
+  animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
