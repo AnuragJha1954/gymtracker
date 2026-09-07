@@ -37,7 +37,7 @@ export default function App() {
         <div className="flex items-center justify-around px-6 py-3 max-w-md mx-auto">
           <button 
             onClick={() => setTab('tracker')}
-            className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-colors ${tab === 'tracker' ? 'text-emerald-400' : 'text-zinc-500 hover:text-zinc-300'}`}
+            className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-colors ${tab === 'tracker' ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
           >
             <Dumbbell className="w-6 h-6" />
             <span className="text-[10px] font-bold font-mono uppercase">Tracker</span>
@@ -45,7 +45,7 @@ export default function App() {
           
           <button 
             onClick={() => setTab('plan')}
-            className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-colors ${tab === 'plan' ? 'text-emerald-400' : 'text-zinc-500 hover:text-zinc-300'}`}
+            className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-colors ${tab === 'plan' ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
           >
             <FileText className="w-6 h-6" />
             <span className="text-[10px] font-bold font-mono uppercase">My Plan</span>

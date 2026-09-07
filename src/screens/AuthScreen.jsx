@@ -19,7 +19,7 @@ export default function AuthScreen() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="glass-card w-full max-w-sm rounded-3xl p-8 space-y-8 animate-scale-in">
         <div className="flex flex-col items-center">
-          <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-500 mb-4 shadow-inner">
+          <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-white mb-4 shadow-inner">
             <Dumbbell className="w-8 h-8" />
           </div>
           <h1 className="text-2xl font-black font-['Outfit'] text-white">GymTracker</h1>
@@ -33,7 +33,7 @@ export default function AuthScreen() {
               placeholder="Username" 
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full bg-[#18181b] border border-[#27272a] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-[#18181b] border border-[#27272a] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors"
             />
           </div>
           <div>
@@ -42,7 +42,7 @@ export default function AuthScreen() {
               placeholder="Password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-[#18181b] border border-[#27272a] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-[#18181b] border border-[#27272a] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors"
             />
           </div>
 
@@ -50,7 +50,7 @@ export default function AuthScreen() {
 
           <button 
             type="submit" 
-            className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-black rounded-xl uppercase tracking-wider text-sm transition-transform active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.2)] mt-4"
+            className="w-full py-3.5 bg-white hover:bg-zinc-200 text-zinc-950 font-black rounded-xl uppercase tracking-wider text-sm transition-transform active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.05)] mt-4"
           >
             Login
           </button>

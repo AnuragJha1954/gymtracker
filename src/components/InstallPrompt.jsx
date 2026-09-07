@@ -32,9 +32,9 @@ export default function InstallPrompt() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-4 left-4 right-4 z-50 bg-[#121214] border border-emerald-500/30 shadow-[0_10px_40px_rgba(16,185,129,0.2)] rounded-2xl p-4 flex items-center justify-between animate-slide-down">
+    <div className="fixed top-4 left-4 right-4 z-50 bg-[#121214] border border-white/10 shadow-[0_10px_40px_rgba(255,255,255,0.05)] rounded-2xl p-4 flex items-center justify-between animate-slide-down">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400">
+        <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-white">
           <Download className="w-5 h-5" />
         </div>
         <div>
@@ -45,7 +45,7 @@ export default function InstallPrompt() {
       <div className="flex items-center gap-2">
         <button 
           onClick={handleInstallClick}
-          className="px-3 py-1.5 bg-emerald-500 text-zinc-950 font-bold text-xs rounded-lg active:scale-95 transition-transform"
+          className="px-3 py-1.5 bg-white text-zinc-950 font-bold text-xs rounded-lg active:scale-95 transition-transform"
         >
           Install
         </button>
