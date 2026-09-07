@@ -1,6 +1,10 @@
 import { S3Client, GetObjectCommand, PutObjectCommand, DeleteObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
-import dotenv from 'dotenv';
-dotenv.config({ path: '.env.local' });
+try {
+  const dotenv = await import('dotenv');
+  dotenv.default.config({ path: '.env.local' });
+} catch (e) {
+  // Ignore if dotenv is not available (e.g. in Vercel production)
+}
 const bucketName = process.env.B2_BUCKET_NAME;
 
 const s3Client = new S3Client({

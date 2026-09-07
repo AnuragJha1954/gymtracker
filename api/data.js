@@ -1,7 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { readB2Object, writeB2Object } from './lib/b2Storage.js';
-import dotenv from 'dotenv';
-dotenv.config({ path: '.env.local' });
+try {
+  const dotenv = await import('dotenv');
+  dotenv.default.config({ path: '.env.local' });
+} catch (e) {}
 
 const authenticate = (req, res, next) => {
   const authHeader = req.headers['authorization'];
