@@ -593,8 +593,8 @@ export default function GymTracker() {
     , 0);
 
     return (
-      <div className="fixed inset-0 z-50 bg-[#0B111A] flex flex-col font-sans overflow-y-auto">
-        <div className="p-6 sm:p-8 flex-1 max-w-lg mx-auto w-full flex flex-col items-center text-center justify-center min-h-screen space-y-6">
+      <div className="fixed inset-0 z-40 bg-[#0B111A] flex flex-col font-sans overflow-y-auto">
+        <div className="p-6 sm:p-8 flex-1 max-w-lg mx-auto w-full flex flex-col items-center text-center justify-center min-h-[100dvh] space-y-6 pb-28">
           <div className="w-20 h-20 rounded-full bg-[#3B82F6] flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.2)] animate-scale-in">
             <Check className="w-10 h-10 text-[#0B111A] stroke-[3]" />
           </div>
