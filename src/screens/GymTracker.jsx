@@ -189,6 +189,7 @@ export default function GymTracker() {
   
   // App States: 'idle', 'active', 'summary'
   const [viewState, setViewState] = useState('idle');
+  const [expandedHistoryId, setExpandedHistoryId] = useState(null);
   
   // Active Workout State
   const [activeWorkout, setActiveWorkout] = useState(null);
@@ -406,32 +407,83 @@ export default function GymTracker() {
             </div>
           </div>
         ) : (
-          <div className="mx-[22px] space-y-3">
-            {workouts.map(wo => {
-              const isLegacy = !wo.exercises && !!wo.exercise_name;
-              let title = wo.name || wo.exercise_name || "Workout";
-              let exerciseCount = isLegacy ? 1 : (wo.exercises?.length || 0);
-              let totalSets = isLegacy 
-                ? (wo.sets?.length || 0) 
-                : (wo.exercises?.reduce((sum, ex) => sum + (ex.sets?.length || 0), 0) || 0);
-              
-              return (
-                <div key={wo.id} className="border border-[#1c1c1f] bg-[#0A0A0B] rounded-[4px] p-4 flex justify-between items-center group">
-                  <div>
-                    <h4 className="font-bold text-[#F5F1EA] text-[15px]">{title}</h4>
-                    <div className="text-[11px] text-[#5A5A62] mt-1 flex gap-2">
-                      <span>{wo.date}</span>
-                      {wo.duration && <span>· {wo.duration} min</span>}
-                      <span>· {exerciseCount} exercises</span>
+            <div className="mx-[22px] space-y-3">
+              {workouts.map(wo => {
+                const isLegacy = !wo.exercises && !!wo.exercise_name;
+                let title = wo.name || wo.exercise_name || "Workout";
+                let exerciseCount = isLegacy ? 1 : (wo.exercises?.length || 0);
+                let totalSets = isLegacy 
+                  ? (wo.sets?.length || 0) 
+                  : (wo.exercises?.reduce((sum, ex) => sum + (ex.sets?.length || 0), 0) || 0);
+                
+                const isExpanded = expandedHistoryId === wo.id;
+                
+                return (
+                  <div key={wo.id} className="border border-[#1c1c1f] bg-[#0A0A0B] rounded-[4px] flex flex-col group overflow-hidden">
+                    <div 
+                      onClick={() => setExpandedHistoryId(isExpanded ? null : wo.id)}
+                      className="p-4 flex justify-between items-center cursor-pointer hover:bg-[#141A25] transition-colors"
+                    >
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-bold text-[#F5F1EA] text-[15px]">{title}</h4>
+                          <ChevronDown className={`w-4 h-4 text-[#5A5A62] transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                        </div>
+                        <div className="text-[11px] text-[#5A5A62] mt-1 flex gap-2">
+                          <span>{wo.date}</span>
+                          {wo.duration && <span>· {wo.duration} min</span>}
+                          <span>· {exerciseCount} exercises</span>
+                        </div>
+                      </div>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); deleteWorkoutHistory(wo.id); }} 
+                        className="p-2 text-[#5A5A62] hover:text-red-400 opacity-50 group-hover:opacity-100 transition-opacity"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
                     </div>
+
+                    {/* Expandable Details */}
+                    {isExpanded && (
+                      <div className="px-4 pb-4 border-t border-[#1c1c1f] pt-3 space-y-3 bg-[#0A0A0B]">
+                        {!isLegacy && wo.exercises?.map((ex, idx) => (
+                          <div key={ex.id || idx} className="text-[12px]">
+                            <div className="text-[#cfcfd2] font-semibold mb-1.5">{ex.name}</div>
+                            <div className="space-y-1 pl-2 border-l-2 border-[#1c1c1f]">
+                              {ex.sets.map((set, sIdx) => {
+                                const completed = set.completed !== false; // handle older undefined fields
+                                return (
+                                  <div key={set.id || sIdx} className="flex gap-4 text-[#5A5A62]">
+                                    <span className="w-8 text-left">Set {set.setNumber || sIdx + 1}</span>
+                                    <span className="w-12 font-mono text-[#F5F1EA]">{set.weight} kg</span>
+                                    <span className="w-12 font-mono text-[#F5F1EA]">{set.reps} reps</span>
+                                    <span className="flex-1 text-right">{completed ? <Check className="w-3.5 h-3.5 inline text-[#3B82F6]" /> : <X className="w-3.5 h-3.5 inline text-[#5A5A62]" />}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
+                        {isLegacy && (
+                          <div className="text-[12px]">
+                            <div className="text-[#cfcfd2] font-semibold mb-1.5">{wo.exercise_name}</div>
+                            <div className="space-y-1 pl-2 border-l-2 border-[#1c1c1f]">
+                              {wo.sets?.map((set, sIdx) => (
+                                <div key={sIdx} className="flex gap-4 text-[#5A5A62]">
+                                  <span className="w-8 text-left">Set {sIdx + 1}</span>
+                                  <span className="w-12 font-mono text-[#F5F1EA]">{set.weight} kg</span>
+                                  <span className="w-12 font-mono text-[#F5F1EA]">{set.reps} reps</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
-                  <button onClick={() => deleteWorkoutHistory(wo.id)} className="p-2 text-[#5A5A62] hover:text-red-400 opacity-50 group-hover:opacity-100 transition-opacity">
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
         )}
       </div>
     );

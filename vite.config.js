@@ -47,7 +47,7 @@ export default defineConfig({
     },
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'apple-touch-icon.png', 'mask-icon.svg'],
+      includeAssets: ['favicon.svg', 'apple-touch-icon.png', 'mask-icon.svg', 'aman.html', 'anurag.html'],
       manifest: {
         name: 'GymTrack',
         short_name: 'GymTrack',
