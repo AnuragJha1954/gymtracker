@@ -352,6 +352,48 @@ export default function GymTracker() {
     const todayStr = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit' });
     const totalSessions = workouts.length;
 
+    let dayStreak = 0;
+    let lastLiftStr = '—';
+
+    if (workouts.length > 0) {
+      const sortedWorkouts = [...workouts].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+      const lastLiftDate = new Date(sortedWorkouts[0].date);
+      
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const checkDate = new Date(lastLiftDate);
+      checkDate.setHours(0, 0, 0, 0);
+      
+      const diffDays = Math.round((today - checkDate) / (1000 * 60 * 60 * 24));
+      
+      if (diffDays === 0) {
+        lastLiftStr = 'Today';
+      } else if (diffDays === 1) {
+        lastLiftStr = 'Yest.';
+      } else {
+        lastLiftStr = checkDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      }
+
+      // Calculate streak
+      const uniqueDates = [...new Set(sortedWorkouts.map(w => w.date))];
+      if (diffDays > 1) {
+        dayStreak = 0;
+      } else {
+        dayStreak = 1;
+        let current = new Date(uniqueDates[0]);
+        for (let i = 1; i < uniqueDates.length; i++) {
+          const prevDate = new Date(uniqueDates[i]);
+          const diff = Math.round((current - prevDate) / (1000 * 60 * 60 * 24));
+          if (diff === 1) {
+            dayStreak++;
+            current = prevDate;
+          } else {
+            break;
+          }
+        }
+      }
+    }
+
     return (
       <div className="flex flex-col h-full animate-fade-in pb-8">
         <div className="pt-[22px] px-[22px] flex justify-between items-baseline">
@@ -363,11 +405,11 @@ export default function GymTracker() {
 
         <div className="flex mt-5 mx-[22px] border-y border-[#1c1c1f]">
           <div className="flex-1 py-3.5 text-left pr-2">
-            <div className="font-display text-[22px] text-[#F5F1EA] leading-none">0</div>
+            <div className="font-display text-[22px] text-[#F5F1EA] leading-none">{dayStreak}</div>
             <div className="text-[10px] text-[#5A5A62] uppercase tracking-[0.04em] mt-1.5">Day streak</div>
           </div>
           <div className="flex-1 py-3.5 text-left border-l border-[#1c1c1f] pl-[14px]">
-            <div className="font-display text-[22px] text-[#F5F1EA] leading-none">—</div>
+            <div className="font-display text-[22px] text-[#F5F1EA] leading-none text-[18px] flex items-center h-[22px]">{lastLiftStr}</div>
             <div className="text-[10px] text-[#5A5A62] uppercase tracking-[0.04em] mt-1.5">Last lift</div>
           </div>
           <div className="flex-1 py-3.5 text-left border-l border-[#1c1c1f] pl-[14px]">
