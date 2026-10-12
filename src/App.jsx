@@ -87,6 +87,9 @@ export default function App() {
             id: `ex_${Date.now()}_${i}`,
             name: ex.name,
             restSeconds: ex.restSeconds || settings.defaultRestSeconds || 90,
+            backNote: ex.backNote || null,
+            physioCheck: ex.physioCheck || false,
+            swap: ex.swap || null,
             sets
           };
         });

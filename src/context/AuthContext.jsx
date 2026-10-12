@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     if (cleanUser === 'aman' && password === 'gympass2') {
-      const u = { id: 'user_aman', name: 'Aman', plan: 'plan2', role: 'athlete', goal: 'hypertrophy' };
+      const u = { id: 'user_aman', name: 'Aman', plan: 'plan2', role: 'athlete', goal: 'bulk' };
       const tok = 'mock_token_' + u.id;
       setUser(u);
       setToken(tok);

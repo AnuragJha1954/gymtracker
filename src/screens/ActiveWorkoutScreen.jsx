@@ -272,11 +272,23 @@ export default function ActiveWorkoutScreen({
                     borderColor: 'var(--color-border)'
                   }}
                 >
-                  <div>
-                    <h3 className="font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                      {ex.name}
-                    </h3>
+                  <div className="flex-1 min-w-0 pr-2">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                        {ex.name}
+                      </h3>
+                      {ex.physioCheck && (
+                        <span className="px-1.5 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-[9px] font-bold">
+                          ⚠️ Physio Check
+                        </span>
+                      )}
+                    </div>
+                    {ex.backNote && (
+                      <p className={`text-[10px] font-mono mt-0.5 ${ex.physioCheck ? 'text-amber-300/90 font-medium' : 'text-slate-400'}`}>
+                        {ex.backNote} {ex.swap && <span className="text-amber-400 font-bold block sm:inline">⚡ Swap: {ex.swap}</span>}
+                      </p>
+                    )}
                     {lastSession && (
                       <p className="text-[11px] text-slate-400 font-mono mt-0.5">
                         Last ({lastSession.date}):{' '}

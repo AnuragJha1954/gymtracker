@@ -187,7 +187,7 @@ export default function HomeScreen({
         />
         <StatTile 
           label="Goal" 
-          value={user?.goal ? user.goal.toUpperCase() : 'RECOMP'} 
+          value={user?.goal ? (user.goal.toLowerCase().includes('hypertrophy') || user.goal.toLowerCase().includes('bulk') ? 'BULK' : user.goal.toUpperCase()) : 'RECOMP'} 
           icon={Flame} 
         />
       </div>

@@ -89,7 +89,9 @@ export function StatTile({ label, value, subtext, icon: Icon, color = 'blue' }) 
         <span className="text-[10px] uppercase font-bold tracking-wider">{label}</span>
         {Icon && <Icon className="w-3.5 h-3.5 text-blue-400" />}
       </div>
-      <div className="text-2xl font-black font-mono tabular-nums text-white">
+      <div className={`font-black font-mono tabular-nums text-white truncate ${
+        String(value).length > 6 ? 'text-base sm:text-lg' : 'text-xl sm:text-2xl'
+      }`}>
         {value}
       </div>
       {subtext && (
