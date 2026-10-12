@@ -1,0 +1,93 @@
+/* ==========================================================================
+   GYMTRACK DESIGN SYSTEM TOKENS
+   Mobile-first, electric blue accent, dark theme default, light theme support
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  --color-bg: #07090E;
+  --color-surface: #0E131F;
+  --color-surface-2: #161D2E;
+  --color-surface-3: #1F293D;
+  --color-border: #1E2738;
+  --color-border-subtle: #141B29;
+  
+  --color-text: #F3F5FA;
+  --color-text-muted: #8E9BAE;
+  --color-text-dim: #546075;
+  
+  --color-accent: #3B82F6;
+  --color-accent-hover: #2563EB;
+  --color-accent-subtle: rgba(59, 130, 246, 0.12);
+  --color-accent-border: rgba(59, 130, 246, 0.25);
+  
+  --color-success: #10B981;
+  --color-success-subtle: rgba(16, 185, 129, 0.12);
+  --color-warning: #F59E0B;
+  --color-warning-subtle: rgba(245, 158, 11, 0.12);
+  --color-danger: #EF4444;
+  --color-danger-subtle: rgba(239, 68, 68, 0.12);
+  --color-pr-gold: #FBBF24;
+  --color-pr-gold-subtle: rgba(251, 191, 36, 0.15);
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="light"] {
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F1F5F9;
+  --color-surface-3: #E2E8F0;
+  --color-border: #E2E8F0;
+  --color-border-subtle: #EDF2F7;
+  
+  --color-text: #0F172A;
+  --color-text-muted: #64748B;
+  --color-text-dim: #94A3B8;
+  
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --color-accent-subtle: rgba(37, 99, 235, 0.1);
+  --color-accent-border: rgba(37, 99, 235, 0.25);
+  
+  --color-success: #059669;
+  --color-success-subtle: rgba(5, 150, 105, 0.1);
+  --color-warning: #D97706;
+  --color-warning-subtle: rgba(217, 119, 6, 0.1);
+  --color-danger: #DC2626;
+  --color-danger-subtle: rgba(220, 38, 38, 0.1);
+  --color-pr-gold: #D97706;
+  --color-pr-gold-subtle: rgba(217, 119, 6, 0.15);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.2);
+}
+
+/* Base utility classes */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans, "Archivo", sans-serif);
+  min-height: 100dvh;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+input, textarea {
+  user-select: auto;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.tap-target {
+  min-height: 48px;
+  min-width: 48px;
+}

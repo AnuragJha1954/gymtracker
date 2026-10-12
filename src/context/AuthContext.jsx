@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { getPlanById } from '../data/seedPlans';
 
 const AuthContext = createContext();
 
@@ -7,41 +8,141 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+  const [settings, setSettings] = useState({
+    units: 'kg',
+    theme: 'dark',
+    defaultRestSeconds: 90,
+    hapticsEnabled: true,
+    soundEnabled: true,
+  });
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('gymtracker_user');
-    const savedToken = localStorage.getItem('gymtracker_token');
-    if (savedUser && savedToken) {
-      setUser(JSON.parse(savedUser));
-      setToken(savedToken);
+    try {
+      const savedUser = localStorage.getItem('gymtracker_user');
+      const savedToken = localStorage.getItem('gymtracker_token');
+      const savedSettings = localStorage.getItem('gymtracker_settings');
+      
+      if (savedUser && savedToken) {
+        setUser(JSON.parse(savedUser));
+        setToken(savedToken);
+      }
+      if (savedSettings) {
+        const parsed = JSON.parse(savedSettings);
+        setSettings(prev => ({ ...prev, ...parsed }));
+        applyTheme(parsed.theme || 'dark');
+      } else {
+        applyTheme('dark');
+      }
+    } catch (e) {
+      console.error('Error loading session:', e);
     }
   }, []);
 
-  const login = (username, password) => {
-    if (username === 'anurag' && password === 'gympass1') {
-      const u = { id: 'user_anurag', name: 'Anurag', plan: 'plan1' };
-      // Normally we'd fetch a JWT from backend. We mock it for the client here,
-      // but to call the Vercel backend we actually need a valid JWT signed with JWT_SECRET.
-      // Wait, since we copied api/data.js, it uses jwt.verify(token, process.env.JWT_SECRET).
-      // We must generate a real token or change api/data.js to accept mock tokens!
-      // Let's modify api/data.js to bypass auth for this isolated app, OR sign a token on a mock login endpoint.
-      // Easiest is to modify api/data.js to accept a simple header for this app.
-      
+  const applyTheme = (theme) => {
+    const root = document.documentElement;
+    if (theme === 'system') {
+      const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', systemDark ? 'dark' : 'light');
+    } else {
+      root.setAttribute('data-theme', theme || 'dark');
+    }
+  };
+
+  const updateSettings = (newSettings) => {
+    const merged = { ...settings, ...newSettings };
+    setSettings(merged);
+    localStorage.setItem('gymtracker_settings', JSON.stringify(merged));
+    if (newSettings.theme) {
+      applyTheme(newSettings.theme);
+    }
+  };
+
+  const login = (username, password, remember = true) => {
+    const cleanUser = username?.toLowerCase().trim();
+    
+    // Seed credentials
+    if (cleanUser === 'anurag' && password === 'gympass1') {
+      const u = { id: 'user_anurag', name: 'Anurag', plan: 'plan1', role: 'athlete', goal: 'recomp' };
+      const tok = 'mock_token_' + u.id;
       setUser(u);
-      setToken('mock_token_' + u.id);
-      localStorage.setItem('gymtracker_user', JSON.stringify(u));
-      localStorage.setItem('gymtracker_token', 'mock_token_' + u.id);
+      setToken(tok);
+      if (remember) {
+        localStorage.setItem('gymtracker_user', JSON.stringify(u));
+        localStorage.setItem('gymtracker_token', tok);
+      }
       return true;
     }
-    if (username === 'aman' && password === 'gympass2') {
-      const u = { id: 'user_aman', name: 'Aman', plan: 'plan2' };
+
+    if (cleanUser === 'aman' && password === 'gympass2') {
+      const u = { id: 'user_aman', name: 'Aman', plan: 'plan2', role: 'athlete', goal: 'hypertrophy' };
+      const tok = 'mock_token_' + u.id;
       setUser(u);
-      setToken('mock_token_' + u.id);
-      localStorage.setItem('gymtracker_user', JSON.stringify(u));
-      localStorage.setItem('gymtracker_token', 'mock_token_' + u.id);
+      setToken(tok);
+      if (remember) {
+        localStorage.setItem('gymtracker_user', JSON.stringify(u));
+        localStorage.setItem('gymtracker_token', tok);
+      }
       return true;
     }
-    return false;
+
+    // Check custom registered users from local storage
+    try {
+      const usersDb = JSON.parse(localStorage.getItem('gymtracker_registered_users') || '[]');
+      const found = usersDb.find(u => u.username.toLowerCase() === cleanUser && u.password === password);
+      if (found) {
+        const u = { id: found.id, name: found.name, plan: found.plan || 'plan1', goal: found.goal || 'strength' };
+        const tok = 'mock_token_' + u.id;
+        setUser(u);
+        setToken(tok);
+        if (remember) {
+          localStorage.setItem('gymtracker_user', JSON.stringify(u));
+          localStorage.setItem('gymtracker_token', tok);
+        }
+        return true;
+      }
+    } catch (_) {}
+
+    throw new Error('Invalid username or password.');
+  };
+
+  const signup = ({ username, password, name, goal = 'recomp', plan = 'plan1' }) => {
+    const cleanUser = username?.toLowerCase().trim();
+    if (!cleanUser || cleanUser.length < 3) {
+      throw new Error('Username must be at least 3 characters.');
+    }
+    if (!password || password.length < 6) {
+      throw new Error('Password must be at least 6 characters.');
+    }
+
+    try {
+      const usersDb = JSON.parse(localStorage.getItem('gymtracker_registered_users') || '[]');
+      if (usersDb.some(u => u.username.toLowerCase() === cleanUser) || cleanUser === 'anurag' || cleanUser === 'aman') {
+        throw new Error('Username is already taken. Please choose another.');
+      }
+
+      const newUser = {
+        id: 'usr_' + Date.now().toString(36),
+        username: cleanUser,
+        password,
+        name: name || cleanUser,
+        plan,
+        goal
+      };
+
+      usersDb.push(newUser);
+      localStorage.setItem('gymtracker_registered_users', JSON.stringify(usersDb));
+
+      return login(cleanUser, password, true);
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  const updateUserPlan = (planId) => {
+    if (!user) return;
+    const updated = { ...user, plan: planId };
+    setUser(updated);
+    localStorage.setItem('gymtracker_user', JSON.stringify(updated));
   };
 
   const logout = () => {
@@ -52,7 +153,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout }}>
+    <AuthContext.Provider value={{
+      user,
+      token,
+      settings,
+      login,
+      signup,
+      logout,
+      updateSettings,
+      updateUserPlan
+    }}>
       {children}
     </AuthContext.Provider>
   );
