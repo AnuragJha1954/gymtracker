@@ -24,6 +24,10 @@
         .rep-bubble { 
             border: 1px solid #1e293b; 
             border-radius: 255px 25px 225px 25px/25px 225px 25px 255px; 
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         @media print { 
             body { background: white; } 
@@ -137,58 +141,58 @@
             <h3 class="text-lg font-bold uppercase tracking-tight mb-3 flex items-center gap-2">
                 <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i> Weekly Training Split
             </h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs">
+            <div class="overflow-x-auto -mx-2 sm:mx-0">
+                <table class="w-full text-left text-xs min-w-[420px]">
                     <thead>
                         <tr class="border-b-2 border-slate-200 text-slate-500 uppercase tracking-wider">
-                            <th class="py-2 pr-3">Day</th>
-                            <th class="py-2 pr-3">Session</th>
+                            <th class="py-2 pr-2 whitespace-nowrap">Day</th>
+                            <th class="py-2 pr-2 whitespace-nowrap">Session</th>
                             <th class="py-2 pr-3">Target Focus</th>
-                            <th class="py-2">Cardio</th>
+                            <th class="py-2 whitespace-nowrap">Cardio</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 font-medium">
                         <tr>
-                            <td class="py-2.5 pr-3 font-bold text-blue-900">Monday</td>
-                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-blue-50 font-bold">Push A</span></td>
-                            <td class="py-2.5 pr-3 text-slate-600">Chest, Front/Side Delts, Triceps</td>
-                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                            <td class="py-2.5 pr-2 font-bold text-blue-900 whitespace-nowrap">Monday</td>
+                            <td class="py-2.5 pr-2 whitespace-nowrap"><span class="rep-bubble px-2.5 py-1 bg-blue-50 font-bold text-xs whitespace-nowrap">Push A</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600 leading-snug">Chest, Front/Side Delts, Triceps</td>
+                            <td class="py-2.5 text-slate-500 whitespace-nowrap">25m Incline Walk</td>
                         </tr>
                         <tr>
-                            <td class="py-2.5 pr-3 font-bold text-blue-900">Tuesday</td>
-                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-emerald-50 font-bold">Pull A</span></td>
-                            <td class="py-2.5 pr-3 text-slate-600">Lats, Upper Back, Rear Delts, Biceps</td>
-                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                            <td class="py-2.5 pr-2 font-bold text-blue-900 whitespace-nowrap">Tuesday</td>
+                            <td class="py-2.5 pr-2 whitespace-nowrap"><span class="rep-bubble px-2.5 py-1 bg-emerald-50 font-bold text-xs whitespace-nowrap">Pull A</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600 leading-snug">Lats, Upper Back, Rear Delts, Biceps</td>
+                            <td class="py-2.5 text-slate-500 whitespace-nowrap">25m Incline Walk</td>
                         </tr>
                         <tr>
-                            <td class="py-2.5 pr-3 font-bold text-blue-900">Wednesday</td>
-                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-amber-50 font-bold">Legs A</span></td>
-                            <td class="py-2.5 pr-3 text-slate-600">Quads, Hamstrings, Calves, Abs</td>
-                            <td class="py-2.5 text-slate-500">15m Lower Incline</td>
+                            <td class="py-2.5 pr-2 font-bold text-blue-900 whitespace-nowrap">Wednesday</td>
+                            <td class="py-2.5 pr-2 whitespace-nowrap"><span class="rep-bubble px-2.5 py-1 bg-amber-50 font-bold text-xs whitespace-nowrap">Legs A</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600 leading-snug">Quads, Hamstrings, Calves, Abs</td>
+                            <td class="py-2.5 text-slate-500 whitespace-nowrap">15m Lower Incline</td>
                         </tr>
                         <tr>
-                            <td class="py-2.5 pr-3 font-bold text-blue-900">Thursday</td>
-                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-blue-50 font-bold">Push B</span></td>
-                            <td class="py-2.5 pr-3 text-slate-600">Chest (Angles), Side Delts, Triceps</td>
-                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                            <td class="py-2.5 pr-2 font-bold text-blue-900 whitespace-nowrap">Thursday</td>
+                            <td class="py-2.5 pr-2 whitespace-nowrap"><span class="rep-bubble px-2.5 py-1 bg-blue-50 font-bold text-xs whitespace-nowrap">Push B</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600 leading-snug">Chest (Angles), Side Delts, Triceps</td>
+                            <td class="py-2.5 text-slate-500 whitespace-nowrap">25m Incline Walk</td>
                         </tr>
                         <tr>
-                            <td class="py-2.5 pr-3 font-bold text-blue-900">Friday</td>
-                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-emerald-50 font-bold">Pull B</span></td>
-                            <td class="py-2.5 pr-3 text-slate-600">Back Thickness, Traps, Biceps</td>
-                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                            <td class="py-2.5 pr-2 font-bold text-blue-900 whitespace-nowrap">Friday</td>
+                            <td class="py-2.5 pr-2 whitespace-nowrap"><span class="rep-bubble px-2.5 py-1 bg-emerald-50 font-bold text-xs whitespace-nowrap">Pull B</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600 leading-snug">Back Thickness, Traps, Biceps</td>
+                            <td class="py-2.5 text-slate-500 whitespace-nowrap">25m Incline Walk</td>
                         </tr>
                         <tr>
-                            <td class="py-2.5 pr-3 font-bold text-blue-900">Saturday</td>
-                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-amber-50 font-bold">Legs B</span></td>
-                            <td class="py-2.5 pr-3 text-slate-600">Glutes, Hamstrings, Quads, Calves</td>
-                            <td class="py-2.5 text-slate-500">15m Lower Incline</td>
+                            <td class="py-2.5 pr-2 font-bold text-blue-900 whitespace-nowrap">Saturday</td>
+                            <td class="py-2.5 pr-2 whitespace-nowrap"><span class="rep-bubble px-2.5 py-1 bg-amber-50 font-bold text-xs whitespace-nowrap">Legs B</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600 leading-snug">Glutes, Hamstrings, Quads, Calves</td>
+                            <td class="py-2.5 text-slate-500 whitespace-nowrap">15m Lower Incline</td>
                         </tr>
                         <tr class="bg-slate-50/70">
-                            <td class="py-2.5 pr-3 font-bold text-purple-900">Sunday</td>
-                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-purple-100 font-bold">Rest</span></td>
-                            <td class="py-2.5 pr-3 text-purple-800">Cardio Only (20-25m Easy Incline Walk)</td>
-                            <td class="py-2.5 text-purple-700">Full Lift Rest</td>
+                            <td class="py-2.5 pr-2 font-bold text-purple-900 whitespace-nowrap">Sunday</td>
+                            <td class="py-2.5 pr-2 whitespace-nowrap"><span class="rep-bubble px-2.5 py-1 bg-purple-100 font-bold text-xs whitespace-nowrap">Rest</span></td>
+                            <td class="py-2.5 pr-3 text-purple-800 leading-snug">Cardio Only (20-25m Easy Incline Walk)</td>
+                            <td class="py-2.5 text-purple-700 whitespace-nowrap">Full Lift Rest</td>
                         </tr>
                     </tbody>
                 </table>
