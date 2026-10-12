@@ -3,138 +3,807 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan 1: Fat Loss + Muscle Build Infographic</title>
+    <title>Plan 1: 12-Week Body Recomposition (Push / Pull / Legs)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .sketch-font { font-family: 'Caveat', cursive; }
-        .sketch-border { border: 2px solid #1e293b; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; background: white; box-shadow: 4px 4px 0px #cbd5e1; transition: transform 0.1s ease; }
-        .sketch-border:hover { transform: translateY(-2px); box-shadow: 6px 6px 0px #94a3b8; }
-        .rep-bubble { border: 1px solid #1e293b; border-radius: 255px 25px 225px 25px/25px 225px 25px 255px; }
-        @media print { body { background: white; } .sketch-border { box-shadow: none; break-inside: avoid; margin-bottom: 20px; } .no-print { display: none; } }
+        .sketch-border { 
+            border: 2px solid #1e293b; 
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; 
+            background: white; 
+            box-shadow: 4px 4px 0px #cbd5e1; 
+            transition: transform 0.15s ease, box-shadow 0.15s ease; 
+        }
+        .sketch-border:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 6px 6px 0px #94a3b8; 
+        }
+        .rep-bubble { 
+            border: 1px solid #1e293b; 
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px; 
+        }
+        @media print { 
+            body { background: white; } 
+            .sketch-border { box-shadow: none; break-inside: avoid; margin-bottom: 20px; } 
+            .no-print { display: none; } 
+        }
     </style>
 </head>
-<body class="text-slate-900 p-4 md:p-8 max-w-7xl mx-auto">
-    <header class="mb-10 text-center sketch-border p-6 bg-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-slate-900"></div>
-        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight uppercase mb-2">Plan 1: Recomp & Build</h1>
-        <p class="text-lg md:text-xl sketch-font text-slate-600 mb-4">97kg Fat Loss + Muscle Build • Intermediate • 12 Week Cycle</p>
-        <div class="inline-flex flex-col md:flex-row items-center gap-2 bg-blue-50 text-blue-800 px-4 py-3 rep-bubble text-sm font-semibold">
-            <div class="flex items-center"><i data-lucide="flame" class="w-4 h-4 mr-2"></i> 2250-2400 kcal</div>
-            <div class="hidden md:block text-blue-300">•</div>
-            <div class="flex items-center"><i data-lucide="activity" class="w-4 h-4 mr-2"></i> Cardio 3x/week AFTER lifting (20-25m)</div>
+<body class="text-slate-900 p-3 sm:p-5 md:p-8 max-w-7xl mx-auto space-y-8">
+
+    <!-- HEADER -->
+    <header class="text-center sketch-border p-6 md:p-8 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-blue-600"></div>
+        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+            Personalized Recomp Plan • Anurag
+        </div>
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight uppercase mb-2">
+            12-Week Body Recomposition
+        </h1>
+        <p class="text-lg md:text-2xl sketch-font text-slate-600 mb-5">
+            Push / Pull / Legs • 6 Days / Week • 97kg → 85kg Target
+        </p>
+
+        <!-- QUICK PILL METRICS -->
+        <div class="flex flex-wrap justify-center items-center gap-2.5 max-w-4xl mx-auto">
+            <div class="flex items-center bg-blue-50 text-blue-900 px-3.5 py-2 rep-bubble text-xs md:text-sm font-semibold">
+                <i data-lucide="flame" class="w-4 h-4 mr-1.5 text-blue-600"></i> ~2,800 kcal baseline
+            </div>
+            <div class="flex items-center bg-emerald-50 text-emerald-900 px-3.5 py-2 rep-bubble text-xs md:text-sm font-semibold">
+                <i data-lucide="beef" class="w-4 h-4 mr-1.5 text-emerald-600"></i> 180-200g Protein / day (4 meals)
+            </div>
+            <div class="flex items-center bg-amber-50 text-amber-900 px-3.5 py-2 rep-bubble text-xs md:text-sm font-semibold">
+                <i data-lucide="footprints" class="w-4 h-4 mr-1.5 text-amber-600"></i> Daily 25m Incline Walk
+            </div>
+            <div class="flex items-center bg-indigo-50 text-indigo-900 px-3.5 py-2 rep-bubble text-xs md:text-sm font-semibold">
+                <i data-lucide="scale" class="w-4 h-4 mr-1.5 text-indigo-600"></i> Target: 0.5 - 0.75 kg/week loss
+            </div>
         </div>
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="sketch-border p-5">
-            <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-4">
-                <h2 class="text-2xl font-bold uppercase">Day 1: Push A</h2>
-                <i data-lucide="arrow-up-square" class="w-8 h-8 text-slate-400"></i>
-            </header>
-            <ul class="space-y-4">
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="minus" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Barbell Bench Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 8-10</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="dumbbell" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Incline DB Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="dumbbell" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Seated DB Shoulder Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="split-square-horizontal" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Cable Fly</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12-15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="move-horizontal" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Lateral Raise</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="git-pull-request" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Triceps Rope Pushdown</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12-15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Overhead Triceps Ext.</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">2 x 12-15</span></li>
-            </ul>
-        </article>
+    <!-- BEFORE YOU START / THREE ADJUSTMENTS -->
+    <section class="sketch-border p-6 bg-white">
+        <div class="flex items-center gap-2 border-b-2 border-slate-200 pb-3 mb-5">
+            <i data-lucide="compass" class="w-6 h-6 text-blue-600"></i>
+            <h2 class="text-xl md:text-2xl font-bold uppercase tracking-tight">Before You Start: Critical Strategy</h2>
+        </div>
 
-        <article class="sketch-border p-5">
-            <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-4">
-                <h2 class="text-2xl font-bold uppercase">Day 2: Pull A</h2>
-                <i data-lucide="arrow-down-square" class="w-8 h-8 text-slate-400"></i>
-            </header>
-            <ul class="space-y-4">
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up-to-line" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Deadlift <span class="text-xs font-normal text-slate-500 block">Conventional</span></span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 6-8</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="grip-horizontal" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Lat Pulldown / Pull-ups</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 8-10</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="minus" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Barbell/DB Row</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="user" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Face Pull</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="minus" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Barbell Curl</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="hammer" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Hammer Curl</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">2 x 12-15</span></li>
-            </ul>
-        </article>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <!-- Calorie & Rate -->
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 text-blue-700 font-bold text-sm uppercase mb-2">
+                        <i data-lucide="trending-down" class="w-4 h-4"></i> 1. Calorie Deficit & Pace
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                        Maintenance at 97kg with 6-day lifting + cardio is ~3,000–3,300 kcal. Track <strong>weekly average weight</strong> (not single days):
+                    </p>
+                    <ul class="text-xs text-slate-700 space-y-1.5 pl-2 border-l-2 border-blue-400">
+                        <li><strong>0.5 – 0.75 kg/wk:</strong> Perfect pace. Retains muscle, strips body fat.</li>
+                        <li><strong>&lt; 0.3 kg/wk:</strong> Reduce calories by 150–200 (carbs/fat). Keep protein fixed.</li>
+                        <li><strong>&gt; 1.0 kg/wk:</strong> Add 100–150 kcal. Losing faster sacrifices muscle & strength.</li>
+                    </ul>
+                </div>
+                <div class="mt-3 pt-2 text-[11px] text-slate-500 sketch-font text-base">
+                    * Reaching 85kg takes ~16-24 weeks. Commit to this initial 12-week block first!
+                </div>
+            </div>
 
-        <article class="sketch-border p-5">
-            <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-4">
-                <h2 class="text-2xl font-bold uppercase">Day 3: Legs A</h2>
-                <i data-lucide="activity" class="w-8 h-8 text-slate-400"></i>
-            </header>
-            <p class="text-xs sketch-font text-slate-600 mb-3 border-b pb-2">Focus: Quad Dominant</p>
-            <ul class="space-y-4">
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="align-justify" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Barbell Back Squat</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 8-10</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Leg Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="footprints" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Walking Lunges</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12/leg</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Leg Extension</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up-to-line" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Standing Calf Raise</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="corner-right-up" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Hanging Leg Raise</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 15</span></li>
-            </ul>
-        </article>
+            <!-- Protein -->
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 text-emerald-700 font-bold text-sm uppercase mb-2">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> 2. Protein Rule
+                    </div>
+                    <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                        Eat <strong>180 to 200g of protein daily</strong> (~2g per kg of target bodyweight).
+                    </p>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Spread across <strong>4 meals (~45-50g per meal)</strong>. This is the single most important factor for preserving and building muscle while in a calorie deficit.
+                    </p>
+                </div>
+                <div class="mt-3 p-2 bg-emerald-50 rounded text-emerald-900 text-xs font-semibold">
+                    Tip: Whey isolate, chicken breast, eggs/whites, Greek yogurt, and paneer/soya.
+                </div>
+            </div>
 
-        <article class="sketch-border p-5">
-            <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-4">
-                <h2 class="text-2xl font-bold uppercase">Day 4: Push B</h2>
-                <i data-lucide="arrow-up-square" class="w-8 h-8 text-slate-400"></i>
-            </header>
-            <ul class="space-y-4">
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Incline Barbell Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 8-10</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="dumbbell" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Flat DB Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="rotate-cw" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Arnold Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="x" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Cable Crossover <span class="text-xs font-normal text-slate-500 block">Low-High</span></span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12-15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="expand" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Rear Delt Fly</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="minimize-2" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Close-Grip Bench Press</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between bg-slate-50 p-2 -mx-2 rounded-lg border border-slate-100"><div class="flex items-center gap-3"><i data-lucide="triangle" class="w-5 h-5 text-slate-700"></i><span class="font-bold text-sm text-slate-700">Diamond Push-ups <span class="text-xs font-normal text-slate-500 block">Finisher</span></span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-200">2 x AMRAP</span></li>
-            </ul>
-        </article>
+            <!-- Cardio & Fat Loss Reality -->
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 text-amber-700 font-bold text-sm uppercase mb-2">
+                        <i data-lucide="heart-pulse" class="w-4 h-4"></i> 3. Cardio & Fat Loss Truth
+                    </div>
+                    <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                        <strong>Pre-Workout Walk (25m):</strong> 10-12% incline, 4.5-5.5 km/h, conversational pace (HR 115-130 bpm).
+                    </p>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        <strong>No Spot Reduction:</strong> Belly, love handles, and chest fat drop last. Training builds the muscle underneath. Measure <strong>navel waist every 2 weeks</strong>!
+                    </p>
+                </div>
+                <div class="mt-3 p-2 bg-amber-50 rounded text-amber-900 text-xs font-semibold">
+                    On Leg Days: Reduce to 15m or lower incline if legs feel heavy.
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <article class="sketch-border p-5">
-            <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-4">
-                <h2 class="text-2xl font-bold uppercase">Day 5: Pull B</h2>
-                <i data-lucide="arrow-down-square" class="w-8 h-8 text-slate-400"></i>
-            </header>
-            <ul class="space-y-4">
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="grip" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Pull-ups <span class="text-xs font-normal text-slate-500 block">Weighted or Assisted</span></span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 8-10</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="navigation" class="w-5 h-5 text-slate-500 transform rotate-90"></i><span class="font-semibold text-sm">Seated Cable Row</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="dumbbell" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Single-Arm DB Row</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12/s</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-down" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Straight-Arm Pulldown</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12-15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="split-square-vertical" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Reverse Pec Deck</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="armchair" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Preacher Curl</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12</span></li>
-                <li class="flex items-center justify-between bg-slate-50 p-2 -mx-2 rounded-lg border border-slate-100"><div class="flex items-center gap-3"><i data-lucide="zap" class="w-5 h-5 text-slate-700"></i><span class="font-bold text-sm text-slate-700">EZ-Bar Curl <span class="text-xs font-normal text-slate-500 block">Finisher</span></span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-200">2 x 15</span></li>
-            </ul>
-        </article>
+    <!-- WEEKLY SCHEDULE & VOLUME STRIP -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Weekly Breakdown -->
+        <section class="lg:col-span-2 sketch-border p-6 bg-white">
+            <h3 class="text-lg font-bold uppercase tracking-tight mb-3 flex items-center gap-2">
+                <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i> Weekly Training Split
+            </h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead>
+                        <tr class="border-b-2 border-slate-200 text-slate-500 uppercase tracking-wider">
+                            <th class="py-2 pr-3">Day</th>
+                            <th class="py-2 pr-3">Session</th>
+                            <th class="py-2 pr-3">Target Focus</th>
+                            <th class="py-2">Cardio</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 font-medium">
+                        <tr>
+                            <td class="py-2.5 pr-3 font-bold text-blue-900">Monday</td>
+                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-blue-50 font-bold">Push A</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600">Chest, Front/Side Delts, Triceps</td>
+                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 pr-3 font-bold text-blue-900">Tuesday</td>
+                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-emerald-50 font-bold">Pull A</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600">Lats, Upper Back, Rear Delts, Biceps</td>
+                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 pr-3 font-bold text-blue-900">Wednesday</td>
+                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-amber-50 font-bold">Legs A</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600">Quads, Hamstrings, Calves, Abs</td>
+                            <td class="py-2.5 text-slate-500">15m Lower Incline</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 pr-3 font-bold text-blue-900">Thursday</td>
+                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-blue-50 font-bold">Push B</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600">Chest (Angles), Side Delts, Triceps</td>
+                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 pr-3 font-bold text-blue-900">Friday</td>
+                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-emerald-50 font-bold">Pull B</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600">Back Thickness, Traps, Biceps</td>
+                            <td class="py-2.5 text-slate-500">25m Incline Walk</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 pr-3 font-bold text-blue-900">Saturday</td>
+                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-amber-50 font-bold">Legs B</span></td>
+                            <td class="py-2.5 pr-3 text-slate-600">Glutes, Hamstrings, Quads, Calves</td>
+                            <td class="py-2.5 text-slate-500">15m Lower Incline</td>
+                        </tr>
+                        <tr class="bg-slate-50/70">
+                            <td class="py-2.5 pr-3 font-bold text-purple-900">Sunday</td>
+                            <td class="py-2.5 pr-3"><span class="rep-bubble px-2 py-0.5 bg-purple-100 font-bold">Rest</span></td>
+                            <td class="py-2.5 pr-3 text-purple-800">Cardio Only (20-25m Easy Incline Walk)</td>
+                            <td class="py-2.5 text-purple-700">Full Lift Rest</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-        <article class="sketch-border p-5">
-            <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-4">
-                <h2 class="text-2xl font-bold uppercase">Day 6: Legs B</h2>
-                <i data-lucide="activity" class="w-8 h-8 text-slate-400"></i>
-            </header>
-            <p class="text-xs sketch-font text-slate-600 mb-3 border-b pb-2">Focus: Posterior & Core</p>
-            <ul class="space-y-4">
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="align-justify" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Romanian Deadlift</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 8-10</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="scissors" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Bulgarian Split Squat</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 10-12/l</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-down" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Leg Curl <span class="text-xs font-normal text-slate-500 block">Lying or Seated</span></span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12-15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Hip Thrust</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 12</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="arrow-up-to-line" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Seated Calf Raise</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">4 x 15-20</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="git-commit" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Cable Crunch</span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 15</span></li>
-                <li class="flex items-center justify-between"><div class="flex items-center gap-3"><i data-lucide="minus-square" class="w-5 h-5 text-slate-500"></i><span class="font-semibold text-sm">Plank <span class="text-xs font-normal text-slate-500 block">Weighted if possible</span></span></div><span class="rep-bubble px-2 py-1 text-xs font-bold bg-slate-100">3 x 45-60s</span></li>
-            </ul>
-        </article>
+        <!-- Volume Overview -->
+        <section class="sketch-border p-6 bg-white flex flex-col justify-between">
+            <div>
+                <h3 class="text-lg font-bold uppercase tracking-tight mb-3 flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="w-5 h-5 text-emerald-600"></i> Weekly Set Volume
+                </h3>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Chest:</span><strong class="font-mono text-blue-700">20 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Back:</span><strong class="font-mono text-blue-700">20 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Quads:</span><strong class="font-mono text-blue-700">20 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Hamstrings:</span><strong class="font-mono text-blue-700">16+ sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Glutes:</span><strong class="font-mono text-blue-700">~16 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Side Delts:</span><strong class="font-mono text-emerald-700">10 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Rear Delts:</span><strong class="font-mono text-emerald-700">8 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Triceps:</span><strong class="font-mono text-emerald-700">12 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Biceps:</span><strong class="font-mono text-emerald-700">11 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Traps:</span><strong class="font-mono text-emerald-700">8 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Calves:</span><strong class="font-mono text-amber-700">11 sets</strong></div>
+                    <div class="flex justify-between p-1.5 bg-slate-50 rounded"><span>Abs:</span><strong class="font-mono text-amber-700">12 sets</strong></div>
+                </div>
+            </div>
+            <p class="text-[11px] text-slate-500 sketch-font text-base mt-2">
+                * Large muscle groups hit optimal 20 sets/wk; small groups hit 10-15 sets/wk.
+            </p>
+        </section>
     </div>
 
-    <footer class="mt-10 sketch-border p-6 bg-slate-50 text-sm text-slate-700">
-        <h3 class="font-bold text-lg mb-3 uppercase flex items-center gap-2"><i data-lucide="clipboard-check"></i> Plan 1 Guidelines</h3>
-        <ul class="list-disc pl-5 space-y-2 sketch-font text-base">
-            <li><strong>Progression:</strong> Hit top of rep range for all sets, 2 sessions in a row → add 2.5-5kg next session.</li>
-            <li><strong>Reassessment (Week 4):</strong> If weight loss is >1kg/week OR strength stalls badly, add 100-150 kcal on training days.</li>
-            <li><strong>Deload:</strong> Every 6th week, reduce volume by ~40% (same exercises, fewer sets/reps) to manage fatigue.</li>
-        </ul>
+    <!-- WORKOUT DAYS GRID (DAY 1 TO 6) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- DAY 1: PUSH A -->
+        <article class="sketch-border p-5 flex flex-col justify-between">
+            <div>
+                <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-2">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Monday</span>
+                        <h2 class="text-2xl font-bold uppercase">Push A</h2>
+                    </div>
+                    <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                        <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                    </div>
+                </header>
+                <div class="text-[11px] text-slate-500 mb-3 flex items-center gap-1 font-semibold">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-blue-500"></i> Cardio: 25m Incline Walk First
+                </div>
+
+                <ul class="space-y-3">
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Incline DB Press</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 8-10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Flat Barbell Bench Press</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 6-8</span>
+                            <span class="text-slate-500">2.5m rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1-2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Low-to-High Cable Fly</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Seated DB Shoulder Press</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 8-10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Cable Lateral Raise</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">5 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Overhead Rope Triceps Ext.</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10-12</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="font-semibold text-sm">Rope Pushdown</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-4 pt-2 border-t border-slate-200 text-xs text-slate-500 sketch-font text-base">
+                Focus: Upper chest expansion & lateral shoulder 3D look.
+            </div>
+        </article>
+
+        <!-- DAY 2: PULL A -->
+        <article class="sketch-border p-5 flex flex-col justify-between">
+            <div>
+                <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-2">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Tuesday</span>
+                        <h2 class="text-2xl font-bold uppercase">Pull A</h2>
+                    </div>
+                    <div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+                        <i data-lucide="arrow-down-left" class="w-6 h-6"></i>
+                    </div>
+                </header>
+                <div class="text-[11px] text-slate-500 mb-3 flex items-center gap-1 font-semibold">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-500"></i> Cardio: 25m Incline Walk First
+                </div>
+
+                <ul class="space-y-3">
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Wide-Grip Lat Pulldown</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 8-10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Chest-Supported DB Row</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 8-10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Straight-Arm Cable Pulldown</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">75s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Face Pull</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Incline DB Curl</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10-12</span>
+                            <span class="text-slate-500">75s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Hammer Curl</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">2 x 12</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="font-semibold text-sm">Cable Crunch</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-4 pt-2 border-t border-slate-200 text-xs text-slate-500 sketch-font text-base">
+                Focus: Lat width (V-taper) & rear delt postural balance.
+            </div>
+        </article>
+
+        <!-- DAY 3: LEGS A -->
+        <article class="sketch-border p-5 flex flex-col justify-between">
+            <div>
+                <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-2">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Wednesday</span>
+                        <h2 class="text-2xl font-bold uppercase">Legs A</h2>
+                    </div>
+                    <div class="p-2 bg-amber-50 text-amber-600 rounded-lg">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                </header>
+                <div class="text-[11px] text-slate-500 mb-3 flex items-center gap-1 font-semibold">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i> Cardio: 15m Easy Incline (Light)
+                </div>
+
+                <ul class="space-y-3">
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Barbell Back Squat</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 6-8</span>
+                            <span class="text-slate-500">3m rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1-2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Romanian Deadlift (RDL)</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 8-10</span>
+                            <span class="text-slate-500">2.5m rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Leg Press</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10-12</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Leg Extension</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Seated Leg Curl</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 10-12</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Standing Calf Raise</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 10-12</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="font-semibold text-sm">Hanging Knee Raise</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10-12</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-4 pt-2 border-t border-slate-200 text-xs text-slate-500 sketch-font text-base">
+                Focus: Quad overload & posterior chain hinge capacity.
+            </div>
+        </article>
+
+        <!-- DAY 4: PUSH B -->
+        <article class="sketch-border p-5 flex flex-col justify-between">
+            <div>
+                <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-2">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Thursday</span>
+                        <h2 class="text-2xl font-bold uppercase">Push B</h2>
+                    </div>
+                    <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                </header>
+                <div class="text-[11px] text-slate-500 mb-3 flex items-center gap-1 font-semibold">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-blue-500"></i> Cardio: 25m Incline Walk First
+                </div>
+
+                <ul class="space-y-3">
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Flat DB Press</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 8-10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Incline Barbell Press</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 6-8</span>
+                            <span class="text-slate-500">2.5m rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1-2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Pec Deck Fly</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">75s rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Arnold Press</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Cable Lateral Raise (Single-Arm)</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">5 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-2">
+                        <div class="font-semibold text-sm">Skull Crusher (EZ Bar)</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 8-10</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="font-semibold text-sm">Dips or Close-Grip Bench</div>
+                        <div class="flex items-center gap-1.5 mt-1 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 8-10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-blue-700 font-semibold ml-auto">RIR 1-2</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-4 pt-2 border-t border-slate-200 text-xs text-slate-500 sketch-font text-base">
+                Focus: Chest angles variation & triceps horseshoe density.
+            </div>
+        </article>
+
+        <!-- DAY 5: PULL B -->
+        <article class="sketch-border p-5 flex flex-col justify-between">
+            <div>
+                <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-2">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Friday</span>
+                        <h2 class="text-2xl font-bold uppercase">Pull B</h2>
+                    </div>
+                    <div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                </header>
+                <div class="text-[11px] text-slate-500 mb-3 flex items-center gap-1 font-semibold">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-500"></i> Cardio: 25m Incline Walk First
+                </div>
+
+                <ul class="space-y-2.5">
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Pull-up (Weighted / Assisted)</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 6-10</span>
+                            <span class="text-slate-500">2.5m rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">One-Arm DB Row</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10/side</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">T-Bar Row / Chest-Support Row</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 8-10</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Close-Grip Lat Pulldown</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">2 x 10-12</span>
+                            <span class="text-slate-500">75s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Reverse Pec Deck</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Barbell Curl</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 8-10</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Cable Curl</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Barbell Shrug</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 10-12</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="font-semibold text-sm">Ab Wheel Rollout</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 8-12</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-emerald-700 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-4 pt-2 border-t border-slate-200 text-xs text-slate-500 sketch-font text-base">
+                Focus: Mid-back thickness, rhomboids, upper traps & arm peak.
+            </div>
+        </article>
+
+        <!-- DAY 6: LEGS B -->
+        <article class="sketch-border p-5 flex flex-col justify-between">
+            <div>
+                <header class="flex justify-between items-center border-b-2 border-slate-200 pb-3 mb-2">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Saturday</span>
+                        <h2 class="text-2xl font-bold uppercase">Legs B</h2>
+                    </div>
+                    <div class="p-2 bg-amber-50 text-amber-600 rounded-lg">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                </header>
+                <div class="text-[11px] text-slate-500 mb-3 flex items-center gap-1 font-semibold">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i> Cardio: 15m Easy Incline (Light)
+                </div>
+
+                <ul class="space-y-2.5">
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Barbell Hip Thrust</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 8-10</span>
+                            <span class="text-slate-500">2.5m rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1-2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Bulgarian Split Squat</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 8-10/leg</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Hack Squat / Leg Press (High Foot)</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10-12</span>
+                            <span class="text-slate-500">2m rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Lying Leg Curl</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 10-12</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Single-Leg RDL</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10/leg</span>
+                            <span class="text-slate-500">90s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 2</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Leg Extension</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">2 x 15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Standing Calf Raise</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 10-12</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li class="border-b border-slate-100 pb-1.5">
+                        <div class="font-semibold text-sm">Seated Calf Raise</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">4 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="font-semibold text-sm">Cable Crunch</div>
+                        <div class="flex items-center gap-1.5 mt-0.5 text-[11px]">
+                            <span class="rep-bubble px-2 py-0.5 bg-slate-100 font-bold">3 x 12-15</span>
+                            <span class="text-slate-500">60s rest</span>
+                            <span class="text-amber-800 font-semibold ml-auto">RIR 1</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-4 pt-2 border-t border-slate-200 text-xs text-slate-500 sketch-font text-base">
+                Focus: Glute-ham tie-in, unilateral stability & deep core bracing.
+            </div>
+        </article>
+
+    </div>
+
+    <!-- PROGRESSIVE OVERLOAD, DELOAD & EXPECTATIONS -->
+    <section class="sketch-border p-6 md:p-8 bg-white">
+        <div class="flex items-center gap-2 border-b-2 border-slate-200 pb-3 mb-6">
+            <i data-lucide="repeat" class="w-6 h-6 text-blue-600"></i>
+            <h2 class="text-xl md:text-2xl font-bold uppercase tracking-tight">Double Progression, Deload & Recovery Rules</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Double Progression -->
+            <div class="space-y-3">
+                <h3 class="font-bold text-sm uppercase text-slate-800 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span> Double Progression System
+                </h3>
+                <ol class="list-decimal pl-5 text-xs text-slate-700 space-y-2 leading-relaxed">
+                    <li>Pick a weight where you hit the <strong>top of rep range</strong> on all sets at the indicated RIR.</li>
+                    <li>Each session, try to add <strong>1 rep</strong> to the first set or two while maintaining strict form.</li>
+                    <li>Once every set hits the top rep range, add weight: <strong>+2.5kg for upper body, +5kg for legs</strong>, then reset to the bottom rep target.</li>
+                    <li>If you miss reps 2 sessions in a row: hold weight constant & rest slightly longer between sets.</li>
+                </ol>
+            </div>
+
+            <!-- Deload & Recovery -->
+            <div class="space-y-3">
+                <h3 class="font-bold text-sm uppercase text-slate-800 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Week 6 Deload & Lifestyle
+                </h3>
+                <ul class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                    <li><strong>Week 6 Deload:</strong> Cut working sets by ~50% (2 sets instead of 4). Keep weights the same. Recharges CNS & joints before Weeks 7-12.</li>
+                    <li><strong>Sleep 7 to 9 Hours:</strong> Sleep deprivation in a deficit directly burns muscle tissue instead of fat.</li>
+                    <li><strong>Daily Steps (8k-10k):</strong> Non-fatiguing NEAT that accelerates calorie burn without lifting fatigue.</li>
+                    <li><strong>Warm-up Protocol:</strong> 5m treadmill walk, then 2 light progressive ramp-up sets before the first heavy lift.</li>
+                    <li><strong>Daily Fiber (30g):</strong> Essential for gut motility & managing hunger in a deficit.</li>
+                </ul>
+            </div>
+
+            <!-- What to Expect -->
+            <div class="space-y-3">
+                <h3 class="font-bold text-sm uppercase text-slate-800 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-indigo-600"></span> 12-Week Roadmap Timeline
+                </h3>
+                <div class="text-xs text-slate-700 space-y-2.5">
+                    <div class="p-2.5 bg-blue-50/70 rounded-lg border border-blue-100">
+                        <strong class="text-blue-900 block mb-0.5">Weeks 1 to 3:</strong>
+                        Fast initial drop from water & glycogen. Neural adaptation makes strength climb steadily.
+                    </div>
+                    <div class="p-2.5 bg-emerald-50/70 rounded-lg border border-emerald-100">
+                        <strong class="text-emerald-900 block mb-0.5">Weeks 4 to 8:</strong>
+                        Fat loss stabilizes at 0.5–0.75 kg/week. Noticeable visual changes begin appearing across upper torso & midsection.
+                    </div>
+                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-100">
+                        <strong class="text-indigo-900 block mb-0.5">Weeks 9 to 12:</strong>
+                        Waist significantly tighter at navel. Deltoids and chest achieve sculpted definition as strength is maintained or increased!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-xs text-slate-400 pb-8">
+        GymTrack • 12-Week Body Recomposition Master Plan • Anurag • Version 2.0
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
